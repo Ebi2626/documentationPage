@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+<meta charset="utf-8">
+<title>Documentation of immortal dinosaur - jQuery</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+
+<body>
+	<nav class="navbar" id="navbar">
+		<header class="display-4">jQuery documentation - dinosaurs anatomy</header>
+		<ul class="nav-list">
+			<a class="nav-link" href=""><li>What is jQuery?</li></a>
+			<a class="nav-link" href=""><li>What jQuery can make easier for us?</li>
+			<a class="nav-link" href=""><li>How to install jQuery?</li></a>		
+			<a class="nav-link" href=""><li>Syntax</li></a>		
+			<a class="nav-link" href=""><li>Selectors</li></a>		
+			<a class="nav-link" href=""><li>What is jQuery?</li></a>		
+			<a class="nav-link" href=""><li>What is jQuery?</li></a>		
+			<a class="nav-link" href=""><li>What is jQuery?</li></a>		
+			<a class="nav-link" href=""><li>What is jQuery?</li></a>		
+			<a class="nav-link" href=""><li>What is jQuery?</li></a>
+		</ul>
+	</nav>
+	<main id="main-doc">
+		<section class="main-section"><header><h2>What is jQuery?</h2></header>
+			<p>jQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax.[3] It is free, open-source software using the permissive MIT License.[2] Web analysis (from 2017) indicates that it is the most widely deployed JavaScript library by a large margin.</p></section>
+		<section class="main-section"><header><h2>What jQuery can make easier for us?</h2></header>
+			<p>jQuery's syntax is designed to make it easier to navigate a document, select DOM elements, create animations, handle events, and develop Ajax applications. jQuery also provides capabilities for developers to create plug-ins on top of the JavaScript library. This enables developers to create abstractions for low-level interaction and animation, advanced effects and high-level, themeable widgets. The modular approach to the jQuery library allows the creation of powerful dynamic web pages and Web applications.</p>
+			<h3>About using jQuery</h3>
+			<p>jQuery, at its core, is a Document Object Model (DOM) manipulation library. The DOM is a tree-structure representation of all the elements of a Web page. jQuery simplifies the syntax for finding, selecting, and manipulating these DOM elements. For example, jQuery can be used for finding an element in the document with a certain property (e.g. all elements with an h1 tag), changing one or more of its attributes (e.g. color, visibility), or making it respond to an event (e.g. a mouse click).
+			jQuery also provides a paradigm for event handling that goes beyond basic DOM element selection and manipulation. The event assignment and the event callback function definition are done in a single step in a single location in the code. jQuery also aims to incorporate other highly used JavaScript functionality (e.g. fade ins and fade outs when hiding elements, animations by manipulating CSS properties).</p></section>	
+		<section class="main-section">
+			<header><h2>How to install jQuery?</h2></header>
+			<p>There is few ways to include jQuery into our application or website. We can do it:</p>
+				<h3>Via download</h3>
+			<p>There are two versions of jQuery available for downloading:
+				<a href="https://code.jquery.com/jquery-3.4.1.min.js" target="_blank">Production version</a> - this is for your live website because it has been minified and compressed
+				<a href="https://code.jquery.com/jquery-3.4.1.js" target="_blank">Development version</a> - this is for testing and development (uncompressed and readable code)
+				Both versions can be downloaded from <a href="http://jQuery.com" target="_blank">jQuery.com</a>.
+				The jQuery library is a single JavaScript file, and you reference it with the HTML <code>&lt;script&gt;</code> tag (notice that the <code>&lt;script&gt;</code> tag should be inside the <code>&lt;head&gt;</code> section):</p>
+				<div class="jumbotron"><code> &lt;head&gt;<br>
+					&lt;script src="jquery-3.4.0.min.js"&gt;&lt;/script&gt;<br>
+				&lt;/head&gt;</code></div><p class="small">Tip: It's important to save jQuery file in the same folder as your application or change source path. Otherwise it won't work!</p>
+				<h3>Via CDN</h3>
+				<p>If you don't want to download and host jQuery yourself, you can include it from a CDN (Content Delivery Network).Both Google and Microsoft host jQuery.To use jQuery from Google or Microsoft, use one of the following:</p>
+					<div class="jumbotron"><h4>From Google:</h4>
+						<code> &lt;head&gt; &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"&gt;&lt;/script&gt; &lt;/head&gt;</code><br><br>
+						<h4>From Microsoft:</h4>
+						<code> &lt;head&gt; &lt;script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"&gt;&lt;/script&gt; &lt;/head&gt;</code></div>
+			</section>	
+		<section class="main-section"><header><h2>Syntax</h2></header>
+			<p>jQuery was designed to make programer work easier, simpler and faster. It achieve this purpose thanks to short and simply syntax, which is easy to understand even for beginner dewelopers.</p>
+			<p>Basic jQuery syntax looks like this:</p>
+			<div class="jumbotron"><code>$(selector).action()</code></div>
+			<ul>
+				<li><strong>$</strong> - it is the sing of beginning of jQuery command. It inform computer, that we want to use jQuery in this moment</li>
+				<li><strong>(selector)</strong> - it is any html elements, which we usually use in work with CSS files. Here we can declare what is point of our interest and what we want to change/animate or use in some other function.</li>
+				<li><strong>.action()</strong> - it is name of action which we want to perform on the choosen element</li>
+			</ul>
+			<p>At the beginning of your journey with jQuery you should remeber to start coding with the <code>.ready</code> event. It is command which run your application after webpage's components are loaded.</p>
+			<div class="jumbotron"><code>$(document).ready(function(){
+				<br>
+				<br>
+				  // jQuery methods go here...
+				<br>
+				<br>
+}); </code></div>
+		</section>
+		<section class="main-section"><header><h2>Selectors</h2></header>
+			<p>jQuery selectors allow you to select and manipulate HTML element(s).
+				jQuery selectors are used to "find" (or select) HTML elements based on their name, id, classes, types, attributes, values of attributes and much more. It's based on the existing CSS Selectors, and in addition, it has some own custom selectors.
+				All selectors in jQuery start with the dollar sign and parentheses:<code> $()</code>.</p>
+			<p>In jQuery you can use:<ul>
+				<li>Current element: <code>$(this)</code> - selects currently active element.</li>
+				<li>All elements: <code>$(*)</code> - selects all elements in the document.</li>
+				<li>HTML elements: <code>$("p")</code> - selects all "p" elements.</li>
+				<li>Classes: <code>$(".navbar")</code> - selects all elements with class ".navbar"</li>
+				<li>IDs: <code>$("#main")</code> - selects element with ID "main"</li>
+				<li>Elements with specific attributes/classes etc.: <code>$("a[target!='_blank']")</code> - selects all elements with attribute <mark>target</mark> which value is <strong>not equal</strong> to <mark><code>_blank</code></mark>.
+				</li>
+			</ul>
+		</section>	
+		<section class="main-section"><header><h2>Events</h2></header>
+			<p>If we have just selected element, we need to inform application, when we want to run our action. To give computer such information we can use jQuery event, which mean the same as interaction.</p>
+			<p>jQuery give us many ways to reading customers interactions:</p>
+			<table>
+				<tr>
+					<th>Mouse</th>
+					<th>Keyboard</th>
+					<th>Form</th>
+					<th>Document/Window</th>
+				</tr>
+				<tr>
+					<td>click</td>
+					<td>keypres</td>
+					<td>submit</td>
+					<td>load</td>
+				</tr>
+				<tr>
+					<td>dbclick</td>
+					<td>keydown</td>
+					<td>change</td>
+					<td>resize</td>
+				</tr>
+				<tr>
+					<td>mouseenter</td>
+					<td>keyup</td>
+					<td>focus</td>
+					<td>scroll</td>
+				</tr>
+				<tr>
+					<td>mouseleave</td>
+					<td></td>
+					<td>blur</td>
+					<td>unload</td>
+				</tr>
+			</table>
+		</section>	
+		<section class="main-section"><header></header></section>	
+		<section class="main-section"><header></header></section>	
+		<section class="main-section"><header></header></section>
+		<section class="main-section"><header></header></section>
+
+	</main>
+	<footer>
+	</footer>
+
+</body>
