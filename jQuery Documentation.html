@@ -4,34 +4,67 @@
 <meta charset="utf-8">
 <title>Documentation of immortal dinosaur - jQuery</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<style>
+	.neon-text {
+		color: #00f9e2;
+		text-shadow: 1px 1px 5px white;
+	}
+	.black {
+		background-color: black;
+	}
+	* {
+		box-sizing: border-box;
+	}
+	body {
+		max-width: 100%;
+	}
+	button {
+		margin: 5px;
+	}
+	ol>li {
+		list-style-type: none;
+	}
+	h4:first-letter {
+		text-transform: uppercase;
+	}
+</style>
 </head>
-
-<body>
-	<nav class="navbar" id="navbar">
-		<header class="display-4">jQuery documentation - dinosaurs anatomy</header>
-		<ul class="nav-list">
-			<a class="nav-link" href=""><li>What is jQuery?</li></a>
-			<a class="nav-link" href=""><li>What jQuery can make easier for us?</li>
-			<a class="nav-link" href=""><li>How to install jQuery?</li></a>		
-			<a class="nav-link" href=""><li>Syntax</li></a>		
-			<a class="nav-link" href=""><li>Selectors</li></a>		
-			<a class="nav-link" href=""><li>What is jQuery?</li></a>		
-			<a class="nav-link" href=""><li>What is jQuery?</li></a>		
-			<a class="nav-link" href=""><li>What is jQuery?</li></a>		
-			<a class="nav-link" href=""><li>What is jQuery?</li></a>		
-			<a class="nav-link" href=""><li>What is jQuery?</li></a>
+<body class="row">
+	<nav class="col-3 fixed-top pl-3 pt-2" id="navbar">
+		<header class="p-2"><h1 class="text-wrap" style="font-size: 30px;">jQuery documentation - dinosaurs anatomy</h1></header>
+		<ul class="nav-list" style="overflow: auto; max-height: 90vh;">
+			<a class="nav-link" href="#jQuery"><li>What is jQuery?</li></a>
+			<a class="nav-link" href="#easier"><li>What jQuery can make easier for us?</li></a>
+			<a class="nav-link" href="#install"><li>How to install jQuery?</li></a>		
+			<a class="nav-link" href="#syntax"><li>Syntax</li></a>		
+			<a class="nav-link" href="#selectors"><li>Selectors</li></a>		
+			<a class="nav-link" href="#events"><li>Events</li></a>		
+			<a class="nav-link" href="#effects" id="effect"><li>Effects</li></a>
+				<ul class="submenu" id="submenu" style="display:none;">
+					<a class="nav-link" href="#menu-hide"><li>Hide</li></a>
+					<a class="nav-link" href="#menu-fade"><li>Fade</li></a>
+					<a class="nav-link" href="#menu-slide"><li>Slide</li></a>
+					<a class="nav-link" href="#menu-animate"><li>Animate</li></a>
+					<a class="nav-link" href="#menu-stop"><li>Stop</li></a>
+					<a class="nav-link" href="#menu-callback"><li>Callback</li></a>
+					<a class="nav-link" href="#menu-chaining"><li>Chaining</li></a>
+				</ul>	
+			<a class="nav-link" href=""><li>DOM manipulation</li></a>		
+			<a class="nav-link" href=""><li>Traversing</li></a>		
+			<a class="nav-link" href=""><li>AJAX</li></a>
+			<a class="nav-link" href=""><li>Misc</li></a>
 		</ul>
 	</nav>
-	<main id="main-doc">
-		<section class="main-section"><header><h2>What is jQuery?</h2></header>
+	<main class="offset-3 col-9 pt-4 text-justify" id="main-doc">
+		<section class="main-section" id="jQuery"><header><h2>What is jQuery?</h2></header>
 			<p>jQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax.[3] It is free, open-source software using the permissive MIT License.[2] Web analysis (from 2017) indicates that it is the most widely deployed JavaScript library by a large margin.</p></section>
-		<section class="main-section"><header><h2>What jQuery can make easier for us?</h2></header>
+		<section class="main-section" id="easier"><header><h2>What jQuery can make easier for us?</h2></header>
 			<p>jQuery's syntax is designed to make it easier to navigate a document, select DOM elements, create animations, handle events, and develop Ajax applications. jQuery also provides capabilities for developers to create plug-ins on top of the JavaScript library. This enables developers to create abstractions for low-level interaction and animation, advanced effects and high-level, themeable widgets. The modular approach to the jQuery library allows the creation of powerful dynamic web pages and Web applications.</p>
 			<h3>About using jQuery</h3>
 			<p>jQuery, at its core, is a Document Object Model (DOM) manipulation library. The DOM is a tree-structure representation of all the elements of a Web page. jQuery simplifies the syntax for finding, selecting, and manipulating these DOM elements. For example, jQuery can be used for finding an element in the document with a certain property (e.g. all elements with an h1 tag), changing one or more of its attributes (e.g. color, visibility), or making it respond to an event (e.g. a mouse click).
 			jQuery also provides a paradigm for event handling that goes beyond basic DOM element selection and manipulation. The event assignment and the event callback function definition are done in a single step in a single location in the code. jQuery also aims to incorporate other highly used JavaScript functionality (e.g. fade ins and fade outs when hiding elements, animations by manipulating CSS properties).</p></section>	
-		<section class="main-section">
+		<section class="main-section" id="install">
 			<header><h2>How to install jQuery?</h2></header>
 			<p>There is few ways to include jQuery into our application or website. We can do it:</p>
 				<h3>Via download</h3>
@@ -50,7 +83,7 @@
 						<h4>From Microsoft:</h4>
 						<code> &lt;head&gt; &lt;script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"&gt;&lt;/script&gt; &lt;/head&gt;</code></div>
 			</section>	
-		<section class="main-section"><header><h2>Syntax</h2></header>
+		<section class="main-section" id="syntax"><header><h2>Syntax</h2></header>
 			<p>jQuery was designed to make programer work easier, simpler and faster. It achieve this purpose thanks to short and simply syntax, which is easy to understand even for beginner dewelopers.</p>
 			<p>Basic jQuery syntax looks like this:</p>
 			<div class="jumbotron"><code>$(selector).action()</code></div>
@@ -68,11 +101,11 @@
 				<br>
 }); </code></div>
 		</section>
-		<section class="main-section"><header><h2>Selectors</h2></header>
+		<section class="main-section" id="selectors"><header><h2>Selectors</h2></header>
 			<p>jQuery selectors allow you to select and manipulate HTML element(s).
 				jQuery selectors are used to "find" (or select) HTML elements based on their name, id, classes, types, attributes, values of attributes and much more. It's based on the existing CSS Selectors, and in addition, it has some own custom selectors.
 				All selectors in jQuery start with the dollar sign and parentheses:<code> $()</code>.</p>
-			<p>In jQuery you can use:<ul>
+			<p>In jQuery you can use:</p><ul>
 				<li>Current element: <code>$(this)</code> - selects currently active element.</li>
 				<li>All elements: <code>$(*)</code> - selects all elements in the document.</li>
 				<li>HTML elements: <code>$("p")</code> - selects all "p" elements.</li>
@@ -81,17 +114,19 @@
 				<li>Elements with specific attributes/classes etc.: <code>$("a[target!='_blank']")</code> - selects all elements with attribute <mark>target</mark> which value is <strong>not equal</strong> to <mark><code>_blank</code></mark>.
 				</li>
 			</ul>
-		</section>	
-		<section class="main-section"><header><h2>Events</h2></header>
+		</section>
+		<section class="main-section" id="events"><header><h2>Events</h2></header>
 			<p>If we have just selected element, we need to inform application, when we want to run our action. To give computer such information we can use jQuery event, which mean the same as interaction.</p>
-			<p>jQuery give us many ways to reading customers interactions:</p>
-			<table>
+			<p>jQuery give us many ways to reading interactions:</p>
+			<table class="table table-striped table-hover">
+				<thead>
 				<tr>
-					<th>Mouse</th>
-					<th>Keyboard</th>
-					<th>Form</th>
-					<th>Document/Window</th>
+					<th scope="col">Mouse</th>
+					<th scope="col">Keyboard</th>
+					<th scope="col">Form</th>
+					<th scope="col">Document/Window</th>
 				</tr>
+			</thead>
 				<tr>
 					<td>click</td>
 					<td>keypres</td>
@@ -117,8 +152,152 @@
 					<td>unload</td>
 				</tr>
 			</table>
+		</section>
+		<section class="main-section" id="effects"><header><h2>Effects</h2></header>
+			<p>jQuery lets use many different effects, which make our work faster and more effective. You can find the most useful jQuery effects below with their code and examples of usage. Enjoy!</p>
+			<ol>
+				<li class="text-left" id="menu-hide">
+					<p class="text-left"><h4>hide/show/toggle</h4> - it's a command which lets hide or show any element of our html document. The toggle command is combine both of them and lets to switch between hide/show mode of element.</p>
+					<button id="toggle-button">Press here to hide/show element</button>
+					<div id="hide" class="container-fluid p-4 mt-1 mb-1 black"><p class="neon-text">It is div which can be toggled thanks to buttom above.</p></div>
+					<div class="jumbotron text-left">
+						<code>
+							$(document).ready(function(){<br><br>
+							&nbsp; $("#toggle-button").click(function(){<br><br>
+							&nbsp; &nbsp; &nbsp;$("#hide").toggle();<br><br>
+							&nbsp; &nbsp;});<br><br>
+							&nbsp;});
+						</code>
+					</div>
+				</li>
+				<li class="text-left" id="menu-fade"><p class="text-left"><h4>fadeIn/fadeOut/fadeToggle</h4> - works similar to the hide/show effect, but its enriched with fading effect. Moreover there is also another command: fadeTo. It lets for set ending level of elements opacity.</p>
+					<button id="fade-button">Press here to see fadeToggle in action</button>
+					<div id="fade" class="container-fluid p-4 mt-1 mb-1 black">
+						<p class="neon-text">It is fading div if you will be only kind enough to click the button above. Thanks in advance!</p>
+					</div>
+					<div class="jumbotron text-left">
+						<code>
+							$(document).ready(function(){<br><br>
+							&nbsp; $("#fade-button").click(function(){<br><br>
+							&nbsp; &nbsp; &nbsp;$("#fade").fadeToggle();<br><br>
+							&nbsp; &nbsp;});<br><br>
+							&nbsp;});
+						</code>
+					</div>
+					<button id="fadeTo-button">Press here to see fadeTo in action</button>
+					<div id="fadeTo"class="container-fluid p-4 mt-1 mb-1 black">
+						<p class="neon-text">It is fadeTo example</p>
+					</div>
+					<div class="jumbotron text-left">
+						<code>
+							$(document).ready(function(){<br><br>
+							&nbsp; $("#fadeTo-button").click(function(){<br><br>
+							&nbsp; &nbsp; &nbsp;$("#fadeTo").fadeTo("slow", 0.5);<br><br>
+							&nbsp; &nbsp;});<br><br>
+							&nbsp;});
+						</code>
+					</div>
+				</li>
+				<li class="text-left" id="menu-slide"><p class="text-left"><h4>slideDown/slideUp/slideToggle</h4> - works similar to the hide/show effect, but its enriched with slide effect.</p>
+					<button id="slide-button">Press here to see slideToggle in action</button>
+					<div id="slide" class="container-fluid p-4 mt-1 mb-1 black">
+						<p class="neon-text">It is sliding div if you will be only kind enough to click the button above. Thanks in advance!</p>
+					</div>
+					<div class="jumbotron text-left">
+						<code>
+							$(document).ready(function(){<br><br>
+							&nbsp; $("#slide-button").click(function(){<br><br>
+							&nbsp; &nbsp; &nbsp;$("#slide").slideToggle();<br><br>
+							&nbsp; &nbsp;});<br><br>
+							&nbsp;});
+						</code>
+					</div>
+				</li>
+				<li class="text-left" id="menu-animate"><p class="text-left"><h4>animate</h4> - lets make complicated animations in a simple way with css specifications changing in real time.</p>
+					<button id="animate-button">Press here to see example of animation</button>
+					<div class="container-fluid p-4 mt-1 mb-1 black">
+						<p class="neon-text" id="animate" style="position: relative;">It is the best animation in the world</p>
+					</div>
+					<div class="jumbotron text-left">
+						<code>
+							$(document).ready(function(){<br><br>
+							&nbsp; $("#animate-button").click(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({opacity: '0.5'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '200px', top: '-30px'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '-200px', top: '-30px'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '200px', top: '30px', opacity: '1'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '-200px', top: '30px'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '200px', top: '-30px'});<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '-200px', top: '-30px', opacity: '0.75'});<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '200px', top: '30px'});<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '-200px', top: '30px'});<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '200px', top: '-30px'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '-200px', top: '-30px'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '200px', top: '30px'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '0px', top: '0px'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({opacity: '1'});<br><br>
+							&nbsp;});<br><br>
+							});
+						</code>
+					</div>
+				</li>
+				<li class="text-left" id="menu-stop"><p class="text-left"><h4>stop</h4> - can be used to stopped all animations and effects before their ending</p>
+					<button id="start-button">Pres here to see animation, which we can stop thanks to button below</button><br>
+					<button id="stop-button">Press here to see stop in action</button>
+					<div id="stop" class="container-fluid p-4 mt-1 mb-1 black">
+						<p class="neon-text">It is as slow animation as old elephant with broken leg. If you want to stop this ridiculous animation you have to press proper button.</p>
+					</div>
+					<div class="jumbotron text-left">
+						<code>
+								$(document).ready(function(){<br><br>
+								&nbsp;&nbsp;$("#start-button").click(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;&nbsp;$("#stop").fadeToggle(5000);<br><br>
+								&nbsp;&nbsp;});<br><br>
+								&nbsp;&nbsp;$("#stop-button").click(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;&nbsp;$("#stop").stop();<br><br>
+								&nbsp;&nbsp;});<br><br>
+								});
+						</code>
+					</div>
+				</li>
+				<li class="text-left" id="menu-callback"><p class="text-left"><h4>callback</h4> - it's function which is running after current function end.</p>
+					<button id="callback-button">Press here to hide/show element and see the callback effect.</button>
+					<div id="callback" class="container-fluid p-4 mt-1 mb-1 black"><p class="neon-text">It is div which can be toggled thanks to buttom above and has callback alert, which will inform you when it's toggling will have finished.</p></div>
+					<div class="jumbotron text-left">
+						<code>
+							$(document).ready(function(){<br><br>
+							&nbsp; $("#callback-button").click(function(){<br><br>
+							&nbsp; &nbsp; &nbsp;$("#callback").toggle("slow", function();{<br><br>
+							&nbsp; &nbsp; &nbsp;&nbsp;alert("Element has just toggled");<br><br>
+							&nbsp; &nbsp; &nbsp;&nbsp;});<br><br>
+							&nbsp; &nbsp;});<br><br>
+							&nbsp;});
+						</code>
+					</div>
+				</li>
+				<li class="text-left" id="menu-chaining"><p class="text-left"><h4>chaining</h4> - it's jQuery property, which allow us to create all chains with command. jQuery lets for using "enter", so our code still can be clear and readable.</p>
+					<button id="chain-button">Press here to hide/show element and see effect with usage of command chain.</button>
+					<div id="chain" class="container-fluid p-4 mt-1 mb-1 black"><p class="neon-text" style="position: relative !important;">It is div which show us possibility of jQuery chains.</p></div>
+					<div class="jumbotron text-left">
+						<code>
+							$(document).ready(function(){<br><br>
+							&nbsp;$("#chain-button").click(function(){<br><br>
+							&nbsp;&nbsp;$("#chain").css("background-color", "#00028c")<br><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;.slideUp(2500)<br><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;.slideDown(2500)<br><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;.animate({opacity: '0.5'}, 800)<br><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;.animate({opacity: '1'}, 300)<br><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;.animate({opacity: '0.5'}, 800)<br><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;.animate({opacity: '1'}, 300)<br><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;.animate({opacity: '0.5'}, 800)<br><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;.animate({opacity: '1'}, 300);<br><br>
+							&nbsp;&nbsp;});<br><br>
+							&nbsp;});
+						</code>
+					</div>
+				</li>
+			</ol>
 		</section>	
-		<section class="main-section"><header></header></section>	
 		<section class="main-section"><header></header></section>	
 		<section class="main-section"><header></header></section>
 		<section class="main-section"><header></header></section>
@@ -126,5 +305,95 @@
 	</main>
 	<footer>
 	</footer>
+<script>
+	$(document).ready(function(){
+		$("#toggle-button").click(function(){
+			$("#hide").toggle();
+			});
+		});
+	</script>
+	<script>
+	$(document).ready(function(){
+		 $("#fade-button").click(function(){
+			$("#fade").fadeToggle();
+			});
+		});	
+	</script>
+	<script>
+	$(document).ready(function(){
+		$("#fadeTo-button").click(function(){
+			$("#fadeTo").fadeTo("slow", 0.5);
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$("#slide-button").click(function(){
+				$("#slide").slideToggle();
+				});
+			});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$("#animate-button").click(function(){
+				$("#animate").animate({opacity: '0.5'}, "slow");
+				$("#animate").animate({left: '200px', top: '-30px'}, "slow");
+				$("#animate").animate({left: '-200px', top: '-30px'}, "slow");
+				$("#animate").animate({left: '200px', top: '30px', opacity: '1'}, "slow");
+				$("#animate").animate({left: '-200px', top: '30px'}, "slow");
+				$("#animate").animate({left: '200px', top: '-30px'});
+				$("#animate").animate({left: '-200px', top: '-30px', opacity: '0.75'});
+				$("#animate").animate({left: '200px', top: '30px'});
+				$("#animate").animate({left: '-200px', top: '30px'});
+				$("#animate").animate({left: '200px', top: '-30px'}, "slow");
+				$("#animate").animate({left: '-200px', top: '-30px'}, "slow");
+				$("#animate").animate({left: '200px', top: '30px'}, "slow");
+				$("#animate").animate({left: '0px', top: '0px'}, "slow");
+				$("#animate").animate({opacity: '1'});
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$("#start-button").click(function(){
+				$("#stop").fadeToggle(5000);
+				});
+			$("#stop-button").click(function(){
+				$("#stop").stop();
+				});
+			});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$("#callback-button").click(function(){
+				$("#callback").toggle("slow", function(){
+					alert("Element has just toggled");
+					});
+				});
+			});
+		</script>
+		<script>
+		$(document).ready(function(){
+			$("#chain-button").click(function(){
+				$("#chain").css("background-color", "#00028c")
+				.slideUp(2500)
+				.slideDown(2500)
+				.animate({position: 'relative'})
+				.animate({left: '-200px', opacity: '0.5'}, 800)
+				.animate({left: '0px', opacity: '1'}, 300)
+				.animate({left: '-200px', opacity: '0.5'}, 800)
+				.animate({left: '0px', opacity: '1'}, 300)
+				.animate({left: '-200px', opacity: '0.5'}, 800)
+				.animate({left: '0px', opacity: '1'}, 300);
+				});
+			});
+		</script>
+		<script>
+			$(document).ready(function(){
+				$("#effect").click(function(){
+					$("#submenu").toggle("slow");
+					});
+				});
+		</script>
 
 </body>
