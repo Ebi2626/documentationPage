@@ -8,7 +8,7 @@
 <style>
 	.neon-text {
 		color: #00f9e2;
-		text-shadow: 1px 1px 5px white;
+		text-shadow: 0.5px 0.5px 3px white;
 	}
 	.black {
 		background-color: black;
@@ -24,6 +24,7 @@
 	}
 	.BALL {
 		float: left;
+		position: relative;
 		background-color: orange;
 		border: solid black;
 		height: 30px;
@@ -43,9 +44,13 @@
 	}
 	#navbar {
 		height: 100vh;
+		overflow-y: auto;
+		overflow-x: hidden !important;
 	}
 	a {
 		position: relative;
+		overflow-x: hidden;
+		overflow-y: hidden;
 	}
 	a:hover {
 		transition: transform 0.3s linear;
@@ -99,7 +104,7 @@
 <body class="row">
 	<nav class="col-md-3 col-lg-3 col-xl-3 col-sm-4 col-5 fixed-top pl-2 mr-3 pt-2 bg-primary" id="navbar">
 		<header class="p-2"><h1 class="text-wrap text-white" style="font-size: 30px;">jQuery documentation - dinosaurs anatomy</h1></header>
-		<ul class="nav-list pb-2" style="overflow-y: auto; overflow-x: hidden; max-height: 92vh;">
+		<ul class="nav-list pb-2" style="overflow-y: auto; overflow-x: hidden;">
 			<a class="nav-link text-white text-wrap underline" href="#jQuery"><li>What is jQuery?</li></a>
 			<a class="nav-link text-white text-wrap underline" href="#easier"><li>What jQuery can make easier for us?</li></a>
 			<a class="nav-link text-white text-wrap underline" href="#install"><li>How to install jQuery?</li></a>		
@@ -144,10 +149,14 @@
 					<a class="nav-link text-white text-wrap underline" href="#siblings"><li>Siblings</li></a>
 					<a class="nav-link text-white text-wrap underline" href="#filtering"><li>Filtering</li></a>
 				</ul>			
-			<a class="nav-link text-white text-wrap underline" href=""><li>AJAX</li></a>
-			<a class="nav-link text-white text-wrap underline" href=""><li>Misc</li></a>
-		</ul>
-	</nav>
+			<a class="nav-link text-white text-wrap underline" href="#AJAX" id="effect6"><li>AJAX</li></a>
+					<ul class="submenu" id="submenu6" style="display:none;">
+					<a class="nav-link text-white text-wrap underline" href="#load"><li>Load</li></a>
+					<a class="nav-link text-white text-wrap underline" href="#get"><li>Get</li></a>
+					<a class="nav-link text-white text-wrap underline" href="#post"><li>Post</li></a>
+				</ul>
+			</ul>
+		</nav>
 	<main class="offset-md-3 offset-lg-3 offset-xl-3 col-7 offset-5 offset-sm-4 col-sm-8 col-lg-9 pt-4 text-justify" id="main-doc">
 		<section class="main-section pl-2" id="jQuery"><header><h2>What is jQuery?</h2></header>
 			<p class="pl-2">jQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax.[3] It is free, open-source software using the permissive MIT License.[2] Web analysis (from 2017) indicates that it is the most widely deployed JavaScript library by a large margin.</p></section>
@@ -847,7 +856,7 @@
 					</li>
 				</ol>
 			</section>
-			<section class="main-section pl-2" id="traversing"><header><h4>Traversing</h4><header>
+			<section class="main-section pl-2" id="traversing"><header><h4>Traversing</h4></header>
 				<p class="pl-2">jQuery traversing, which means "move through", are used to "find" (or select) HTML elements based on their relation to other elements. Start with one selection and move through that selection until you reach the elements you desire.</p>
 				<p class="pl-2">In general we can divide DOM tree into:</p>
 				<ul>
@@ -860,7 +869,7 @@
 						<p>jQuery give us following ancestors commands:</p>
 						<ul>
 							<li><code>parent()</code> -  method returns the direct parent element of the selected element.This method only traverse a single level up the DOM tree.</li> 
-							<li><code>parents()</code> -  method returns all ancestor elements of the selected element, all the way up to the document's root element (<html>).</li>
+							<li><code>parents()</code> -  method returns all ancestor elements of the selected element, all the way up to the document's root element.</li>
 							<li><code>parentsUntil()</code> - method returns all ancestor elements between two given arguments.</li>
 						</ul>
 						<ol>
@@ -868,7 +877,7 @@
 								<p id="parent"><h4>parent()</h4> - Here you can see example of parent properties usage:</p>
 								<div id="parentBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
 									<div id="father" style="border: solid yellow;">
-							<button id="parentText">This button change color of daddy's borders.</button>
+							<button id="parentText">This button change color of his daddy's borders.</button>
 							<div id="kid"><p>Some text</p>
 							</div></div>
 						</div>
@@ -884,6 +893,8 @@
 								</code>
 							</p>
 						</div>
+					</li>
+					<li>
 						<p id="parents"><h4>parents()</h4> - Here you can see example of parents properties usage:</p>
 								<div id="parentsBox" class="container-fluid p-4 m-2 text-center neon-text black">
 									<div id="mother" class="m-2" style="border: solid red;">
@@ -909,7 +920,7 @@
 								<div id="parentsUntilBox" class="container-fluid p-4 m-2 text-center neon-text black">
 									<div id="motherUntil" class="m-2" style="border: solid red;">
 										<div id="fathersUntil" class="m-2" style="border: solid yellow;">
-											<button id="parentsUntilText">This button change color of all ancestors backgrounds and borders until&lt;li&gt;.</button><div id="kidsUntil"><p>Some text</p>
+											<button id="parentsUntilText">This button change color of all his ancestors backgrounds and borders until&lt;li&gt;.</button><div id="kidsUntil"><p>Some text</p>
 											</div>
 										</div>
 									</div>
@@ -927,23 +938,359 @@
 							</p>
 						</div>
 					</li>
-					<li id="descendants">
+				</ol>
+			</li>
+				<li id="descendants">
+					<h4>descendants</h4>
+					<p>jQuery give us following descendants commands:</p>
+					<ul>
+						<li><code>children()</code> - method returns all direct children of the selected element. This method only traverses a single level down the DOM tree.</li> 
+						<li><code>find()</code> - method returns descendant elements of the selected element, all the way down to the last descendant.</li>
+					</ul>
+					<ol>
+						<li>
+							<p id="children"><h4>children()</h4> - Here you can see example of children properties usage:</p>
+							<div id="childrenBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+								<button id="childrenText">This button change color of direct childrens background of "descendants".</button>
+								<div><p>Some text</p>
+								</div>
+							</div>
+					<p>Here you can see how simple is code for change color of children elements background using jQuery:</p>
+					<div class="jumbotron text-left">
+						<p>
+							<code>
+							&nbsp;$(document).ready(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("#childrenText").click(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("#descendants").children().css({"background-color":"blue"});<br><br>
+							&nbsp;&nbsp;});<br><br>
+							&nbsp;});	
+							</code>
+						</p>
+					</div>
+					<li>
+							<p id="find"><h4>find()</h4> - Here you can see example of find properties usage:</p>
+							<div id="findBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+								<button id="findText">This button change color of all li elements background inside body.</button><button id="reset">Here you can remove this change</button>
+								<div><p>Some text</p>
+								</div>
+							</div>
+					<p>Here you can see how simple is code for change color of finding any element down on the DOM tree using jQuery:</p>
+					<div class="jumbotron text-left">
+						<p>
+							<code>
+							&nbsp;$(document).ready(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("#findText").click(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("body").find("li").css({"border":"solid green", "opacity":"0.5"});<br><br>
+							&nbsp;&nbsp;&nbsp;$("#reset").click(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("body").find("li").css({"border":"none", "opacity":"1"});<br><br>
+							&nbsp;&nbsp;});<br><br>
+							&nbsp;});	
+							</code>
+						</p>
+					</div>
+				</li>
+			</li>
+		</ol>
+	</li>
+		<li id="siblings">
+				<h4>siblings</h4>
+				<p>jQuery give us following siblings commands:</p>
+				<ul>
+					<li><code>siblings()</code> - method returns all sibling elements of the selected element.</li> 
+					<li><code>next()</code> - method returns the next sibling element of the selected element.</li>
+					<li><code>nextAll()</code> -  method returns all next sibling elements of the selected element.</li>
+					<li><code>nextUntil()</code> - method returns all next sibling elements between two given arguments.</li>
+					<li><code>prev()</code> - method returns the previous sibling element of the selected element.</li>
+					<li><code>prevAll()</code> - method returns all previous sibling elements of the selected element.</li>
+					<li><code>prevUntil()</code> - method returns all previous sibling elements between two given arguments.</li>
+				</ul>
+				<ol>
+					<li>
+						<p id="siblings"><h4>siblings()</h4> - Here you can see example of siblings properties usage:</p>
+						<div id="siblingsBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+							<button id="siblingsText">This button change color of all sibling borders of "some text" element.</button>
+							<div><p>Sister of "some text"</p><p id="firstSibling">Some text</p><p>Brother of "some text"</p>
+							</div>
+						</div>
+				<p>Here you can see how simple is code for change color of sibling elements borders using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#siblingsText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#firstSibling").siblings().css({"border":"solid red", "opacity":"0.5"});<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+							</p>
+						</div>
 					</li>
-					<li id="siblings">
+				<li>
+						<p id="next"><h4>next()</h4> - Here you can see example of next properties usage:</p>
+						<div id="nextBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+							<button id="nextText">This button change color of next sibling borders of "some text" element.</button>
+							<div><p>Sister of "some text"</p><p id="nextSibling">Some text</p><p>Brother of "some text"</p>
+							</div>
+						</div>
+				<p>Here you can see how simple is code for change color of next element borders using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#nextText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#nextSibling").next().css({"border":"solid red", "opacity":"0.5"});<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+					</p>
+				</div>
+			</li>
+				<li>
+						<p id="prevAll"><h4>prevAll()</h4> - Here you can see example of prevAll properties usage:</p>
+						<div id="prevAllBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+							<button id="prevAllText">This button change color of all previous siblings borders of "some text" element.</button>
+							<div><p>Little brother of "some text"</p><p>Sister of "some text"</p><p id="prevAllSibling">Some text</p><p>Brother of "some text"</p>
+							</div>
+						</div>
+				<p>Here you can see how simple is code for change color of prevAll element borders using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#prevAllText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#prevAllSibling").prevAll().css({"border":"solid red", "opacity":"0.5"});<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+					</p>
+				</div>
+			</li>
+			<li>
+				<p id="nextUntil"><h4>nextUntil()</h4> - Here you can see example of nextUntil properties usage:</p>
+						<div id="nextUntilBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+							<button id="nextUntilText">This button change color of all next siblings borders of "some text" elements till "Brother' element.</button>
+							<div><p id="nextUntilSibling">Some text</p><p>Little brother of "some text"</p><p>Sister of "some text"</p><p id="brotherNextUntilSibling">Brother of "some text"</p>
+							</div>
+						</div>
+				<p>Here you can see how simple is code for change color of nextUntil element borders using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#nextUntilText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#nextUntilSibling").nextUntil("#brotherNextUntil").css({"border":"solid red", "opacity":"0.5"});<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+					</p>
+				</div>
+			</li>
+		</ol>
+	</li>
+	<li id="filtering">
+		<h4>filtering</h4>
+		<p>jQuery give us following filtering commands:</p>
+		<ul>
+			<li><code>first()</code> - method returns the first element of the specified elements.</li> 
+			<li><code>last()</code> - method returns the last element of the specified elements.</li>
+			<li><code>eq()</code> - method returns an element with a specific index number of the selected elements. The index numbers start at 0, so the first element will have the index number 0 and not 1.</li>
+			<li><code>filter()</code> -The filter() method lets you specify a criteria. Elements that do not match the criteria are removed from the selection, and those that match will be returned.</li>
+			<li><code>not()</code> - method returns all elements that do not match the criteria. It is method opposite to filter.</li>
+		</ul>
+		<ol>
+			<li>
+				<p id="first"><h4>first()</h4> - Here you can see example of first properties usage:</p>
+				<div id="firstBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+					<button id="firstText">This button change color of first li elements background.</button>
+					<div><p>Some text</p>
+					</div>
+				</div>
+				<p>Here you can see how simple is code for change color of first elements background using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#firstText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("li").first().css("background-color","blue");<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+					</p>
+				</div>
+			</li>
+			<li>
+				<p id="last"><h4>last()</h4> - Here you can see example of last properties usage:</p>
+				<div id="lastBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+					<button id="lastText">This button change color of last p element background.</button>
+					<div><p class="last">Some text</p><p class="last">Another text</p><p class="last">And another text</p>
+					</div>
+				</div>
+				<p>Here you can see how simple is code for change color of last p element (with class "last") background using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#lastText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("p.last").last().css("background-color", "blue");<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+					</p>
+				</div>
+			</li>
+			<li>
+				<p id="eq"><h4>eq()</h4> - Here you can see example of eq properties usage:</p>
+				<div id="eqBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+					<button id="eqText">This button change color of third div with "this" class.</button>
+						<div class="BALL this"></div><div class="BALL this"></div><div class="BALL this"></div><div class="BALL this"></div><div class="BALL this"></div><div class="BALL this"></div><div class="BALL this"></div><div class="BALL this"></div><div class="BALL this"></div><div class="BALL this"></div>
+				</div>
+				<p>Here you can see how simple is code for change color of third div with class "this" using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#eqText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("div.this").eq(2).css("background-color", "blue");<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+					</p>
+				</div>
+			</li>
+			<li>
+				<p id="filter"><h4>filter()</h4> - Here you can see example of filter properties usage:</p>
+				<div id="filterBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+					<button id="filterText">This button change color of all divs with class ".filter".</button>
+						<div class="BALL"></div><div class="BALL filter"></div><div class="BALL filter"></div><div class="BALL"></div><div class="BALL filter"></div><div class="BALL"></div><div class="BALL filter"></div><div class="BALL"></div><div class="BALL filter"></div><div class="BALL"></div>
+				</div>
+				<p>Here you can see how simple is code for change color of all div with class ".filter" using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#filterText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("div").filter(".filter").css("background-color", "blue");<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+					</p>
+				</div>
+			</li>
+			<li>
+				<p id="not"><h4>not()</h4> - Here you can see example of not properties usage:</p>
+				<div id="notBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+					<button id="notText">This button change opacity of all divs without class ".filter".</button>
+					<div class="BALL"></div><div class="BALL filter"></div><div class="BALL filter"></div><div class="BALL"></div><div class="BALL filter"></div><div class="BALL"></div><div class="BALL filter"></div><div class="BALL"></div><div class="BALL filter"></div><div class="BALL"></div>
+				</div>
+				<p>Here you can see how simple is code for change opacity of all div without class ".filter" using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#notText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity: '0.5'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity: '0.2'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity: '0.5'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'1'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'0.5'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'0.2'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'0.5'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'1'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'0.5'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'0.2'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'0.5'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'1'}, "fast");<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+					</p>
+				</div>
+			</li>
+		</ol>
+	</li>
+</ol>
+</section>
+		<section class="main-section pl-2" id="AJAX"><header><h4>AJAX</h4></header>
+			<p class="pl-2">AJAX = Asynchronous JavaScript and XML.<br>In short; AJAX is about loading data in the background and display it on the webpage, without reloading the whole page. Examples of applications using AJAX: Gmail, Google Maps, Youtube, and Facebook tabs.</p>
+				<p class="pl-2">In general we can divide AJAX into following type of commands:</p>
+				<ul>
+					<li><code>load()</code> - method loads data from a server and puts the returned data into the selected element.</li>
+					<li><code>Get()</code> - method requests data from the server with an HTTP GET request.</li>
+					<li><code>Post()</code> - method requests data from the server using an HTTP POST request.</li>
+				</ul>
+				<ol>
+					<li id="load"><h4>load()</h4>
+						<p style="display:inline-block; float: left;" class="mr-4">Syntax:</p>
+						<blockquote class="blockquote">$(selector).load(URL,data,callback);</blockquote>
+						<ul>
+							<li>The required URL parameter specifies the URL you wish to load.</li> <br>
+							<li>The optional data parameter specifies a set of querystring key/value pairs to send along with the request.</li><br>
+							<li>The optional callback parameter is the name of a function to be executed after the <code>load()</code> method is completed.</li><br>
+						</ul>
+						<p>I can't show you example of how this command works, because this page can't connect with any server. If you want to see live effect, you can visit <a href="https://www.w3schools.com/jquery/jquery_ajax_load.asp" target="_blank">w3schools.com</a>. Although I can't show you working code, I can show you example from w3 below. Enjoy!</p>
+						<div class="jumbotron text-left">
+							<p>
+								<code>
+									$("button").click(function(){<br><br>
+									 &nbsp;&nbsp;$("#div1").load("demo_test.txt", function(responseTxt, statusTxt, xhr){<br><br>
+									 &nbsp;&nbsp;&nbsp;if(statusTxt == "success<br><br>									 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("External content loaded successfully!");<br><br>
+									 &nbsp;&nbsp;&nbsp;if(statusTxt == "error")<br><br>
+									 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Error: " + xhr.status + ": " + xhr.statusText);<br><br>
+									 &nbsp;&nbsp; });<br><br>
+									});
+								</code>
+							</p>
+						</div>
 					</li>
-			</section>
-		<section class="main-section pl-2"><header></header></section>
+					<li id="get"><h4>get()</h4>
+						<p style="display:inline-block; float: left;" class="mr-4">Syntax:</p>
+						<blockquote class="blockquote">$.get(URL,callback);</blockquote>
+						<ul>
+							<li>The required URL parameter specifies the URL you wish to request.</li> <br>
+							<li>The optional callback parameter is the name of a function to be executed if the request succeeds.</li><br>
+						</ul>
+						<p>I can't show you example of how this command works, because this page can't connect with any server. If you want to see live effect, you can visit <a href="https://www.w3schools.com/jquery/jquery_ajax_get_post.asp" target="_blank">w3schools.com</a>. Although I can't show you working code, I can show you example from w3 below. Enjoy!</p>
+						<div class="jumbotron text-left">
+							<p>
+								<code>
+									$("button").click(function(){<br><br>
+									 &nbsp;&nbsp;$.get("demo_test.asp", function(data, status){<br><br>
+									 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Data: " + data + "\nStatus: " + status);<br><br>&nbsp;&nbsp; });<br><br>
+									});
+								</code>
+							</p>
+						</div>
+					</li><li id="post"><h4>post()</h4>
+						<p style="display:inline-block; float: left;" class="mr-4">Syntax:</p>
+						<blockquote class="blockquote">$.post(URL,data,callback);</blockquote>
+						<ul>
+							<li>The required URL parameter specifies the URL you wish to request.</li> <br>
+							<li>The optional data parameter specifies some data to send along with the request.</li><br>
+							<li>The optional callback parameter is the name of a function to be executed if the request succeeds.</li><br>
+						</ul>
+						<p>I can't show you example of how this command works, because this page can't connect with any server. If you want to see live effect, you can visit <a href="https://www.w3schools.com/jquery/jquery_ajax_get_post.asp" target="_blank">w3schools.com</a>. Although I can't show you working code, I can show you example from w3 below. Enjoy!</p>
+						<div class="jumbotron text-left">
+							<p>
+								<code>
+									$("button").click(function(){<br><br>
+									 &nbsp;&nbsp;$.post("demo_test_post.asp",<br><br>
+									 &nbsp;&nbsp;{<br><br>
+									 &nbsp;&nbsp;&nbsp;&nbsp;name: "Donald Duck",<br><br>
+									 &nbsp;&nbsp;&nbsp;&nbsp;city: "Duckburg"<br><br>
+									 &nbsp;&nbsp;},<br><br>
+									 &nbsp;&nbsp;function(data, status){<br><br>
+									 &nbsp;&nbsp;&nbsp;&nbsp;alert("Data: " + data + "\nStatus: " + status);<br><br>
+									 &nbsp;&nbsp;});<br><br>
+									});
+								</code>
+							</p>
+						</div>
+					</li>
+				</ol>
+		</section>
 	</main>
-	<footer>
-	</footer>
-	<script>
-	$(document).ready(function(){
-		$("#parentsUntilText").click(function(){
-			$("#kidsUntil").parentsUntil("li").css({"border-color":"green", "background-color":"blue"});
-			});
-		});
-	</script>
-	
+	<footer class="container text-center black neon-text offset-md-3 offset-lg-3 offset-xl-3 col-7 offset-5 offset-sm-4 col-sm-8 col-lg-9 pt-4 pb-2" id="feet"><h5 id="source">Magical invisible sources of this page! Get links below!</h5>
+		<span style='visibility: hidden;'><a href='http://www.w3schools.com' class='neon-text' target='_blank'>http://www.w3schools.com</a><br><a href='https://jquery.com/' class='neon-text' target='_blank'>https://jquery.com</a></span></footer>
 <script>
 	$(document).ready(function(){
 		$("#toggle-button").click(function(){
@@ -1205,40 +1552,178 @@
 			});
 		});
 	</script>
+	<script>
+	$(document).ready(function(){
+		$("#parentsUntilText").click(function(){
+			$("#kidsUntil").parentsUntil("li").css({"border-color":"green", "background-color":"blue"});
+			});
+		});
+	</script>
+	<script>
+	$(document).ready(function(){
+		$("#childrenText").click(function(){
+			$("#descendants").children().css({"background-color":"blue"});
+			});
+		});
+	</script>
+	<script>
+	$(document).ready(function(){
+		$("#findText").click(function(){
+			$("body").find("li").css({"border":"solid green", "opacity":"0.5"});
+			});
+		$("#reset").click(function(){
+			$("body").find("li").css({"border":"none", "opacity":"1"});
+		});
+	});
+	</script>
+	<script>
+	$(document).ready(function(){
+		$("#siblingsText").click(function(){
+			$("#firstSibling").siblings().css({"border":"solid red", "opacity":"0.5"});
+			});
+		});
+	</script>
+	<script>
+	$(document).ready(function(){
+		$("#nextText").click(function(){
+			$("#nextSibling").next().css({"border":"solid red", "opacity":"0.5"});
+			});
+		});
+	</script>
+	<script>
+	$(document).ready(function(){
+		$("#prevAllText").click(function(){
+			$("#prevAllSibling").prevAll().css({"border":"solid red", "opacity":"0.5"});
+			});
+		});
+	</script>
+	<script>
+	$(document).ready(function(){
+		$("#nextUntilText").click(function(){
+			$("#nextUntilSibling").nextUntil("#brotherNextUntilSibling").css({"border":"solid red", "opacity":"0.5"});
+			});
+		});
+	</script>
+	<script>
+	$(document).ready(function(){
+		$("#firstText").click(function(){
+			$("li").first().css("background-color", "blue");
+		});
+	});
+	</script>
+	<script>
+	$(document).ready(function(){
+		$("#lastText").click(function(){
+			$("p.last").last().css("background-color", "blue");
+		});
+	});
+	</script>
+	<script>
+	$(document).ready(function(){
+		$("#eqText").click(function(){
+			$("div.this").eq(2).css("background-color", "blue");
+		});
+	});
+	</script>
+	<script>
+	$(document).ready(function(){
+		$("#filterText").click(function(){
+			$("div").filter(".filter").css("background-color", "blue");
+		});
+	});
+	</script>
+	<script>
+	$(document).ready(function(){
+		$("#notText").click(function(){
+			$("div").not(".filter").animate({opacity: '0.5'}, "fast");
+			$("div").not(".filter").animate({opacity: '0.2'}, "fast");
+			$("div").not(".filter").animate({opacity: '0.5'}, "fast");
+			$("div").not(".filter").animate({opacity:'1'}, "fast");
+			$("div").not(".filter").animate({opacity:'0.5'}, "fast");
+			$("div").not(".filter").animate({opacity:'0.2'}, "fast");
+			$("div").not(".filter").animate({opacity:'0.5'}, "fast");
+			$("div").not(".filter").animate({opacity:'1'}, "fast");
+			$("div").not(".filter").animate({opacity:'0.5'}, "fast");
+			$("div").not(".filter").animate({opacity:'0.2'}, "fast");
+			$("div").not(".filter").animate({opacity:'0.5'}, "fast");
+			$("div").not(".filter").animate({opacity:'1'}, "fast");
+		});
+	});
+	</script>
 <!-- Script to working menu -->
 	<script>
 			$(document).ready(function(){
 				$("#effect1").click(function(){
 					$("#submenu1").toggle("slow");
-					$("#submenu1").mouseleave(function(){
+					$("#navbar").mouseleave(function(){
+						setTimeout(function(){
 						$("#submenu1").hide("slow");
+					}, 3000);
 						});
 					});
 				$("#effect2").click(function(){
 					$("#submenu2").toggle("slow");
-					$("#submenu2").mouseleave(function(){
+					$("#navbar").mouseleave(function(){
+						setTimeout(function(){
 						$("#submenu2").hide("slow");
+						}, 3000);
 						});
 					});
 				$("#effect3").click(function(){
 					$("#submenu3").toggle("slow");
-					$("#submenu3").mouseleave(function(){
+					$("#navbar").mouseleave(function(){
+						setTimeout(function(){
 						$("#submenu3").hide("slow");
+						}, 3000);
 						});
 					});
 				$("#effect4").click(function(){
 					$("#submenu4").toggle("slow");
-					$("#submenu4").mouseleave(function(){
+					$("#navbar").mouseleave(function(){
+						setTimeout(function(){
 						$("#submenu4").hide("slow");
+						}, 3000);
 						});
 					});
 				$("#effect5").click(function(){
 					$("#submenu5").toggle("slow");
-					$("#submenu5").mouseleave(function(){
+					$("#navbar").mouseleave(function(){
+						setTimeout(function(){
 							$("#submenu5").hide("slow");
+						}, 3000);
 						});
 					});
+				$("#effect6").click(function(){
+					$("#submenu6").toggle("slow");
+					$("#navbar").mouseleave(function(){
+						setTimeout(function(){
+							$("#submenu6").hide("slow");
+						}, 3000);
+						});
+					});
+				$("#navbar").mouseleave(function(){
+					setTimeout(function(){
+					$("#navbar").css("overflow-y", "hidden");
+				}, 1500);
+				});
 				});
 		</script>
-
+		<!-- Script corrects position of blockquotes -->
+		<script>
+			$(document).ready(function(){
+				$("blockquote").css({"position":"relative","top":"-5px"});
+			});
+		</script>
+		<!-- Script for footer -->
+		<script>
+			var source = "<div class='fut'><a href='http://www.w3schools.com' class='neon-text' target='_blank'>http://www.w3schools.com</a><br><a href='https://jquery.com/' class='neon-text' target='_blank'>https://jquery.com/</a></div>";
+			$(document).ready(function(){
+				$("#feet").mouseenter(function(){
+					$("span").css("visibility", "visible");
+				});
+			});
+			$("#feet").mouseleave(function(){
+				$("span").css("visibility","hidden");
+			});			
+		</script>
 </body>
