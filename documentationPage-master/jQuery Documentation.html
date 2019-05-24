@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Documentation of immortal dinosaur - jQuery</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="script.js"></script>
+</head>
+<body class="row">
+	<nav class="col-md-3 col-lg-3 col-xl-3 col-sm-4 col-5 fixed-top pl-2 mr-3 pt-2 bg-primary" id="navbar">
+		<header class="p-2"><h1 class="text-wrap text-white" style="font-size: 30px;">jQuery documentation - dinosaurs anatomy</h1></header>
+		<ul class="nav-list pb-2" style="overflow-y: auto; overflow-x: hidden;">
+			<li class="text-white text-wrap underline"><a class="nav-link" href="#WHAT_IS_JQUERY?">What is jQuery?</a></li>
+			<li class="text-white text-wrap underline"><a class="nav-link" href="#WHAT_JQUERY_CAN_MAKE_EASIER_FOR_US?">What jQuery can make easier for us?</a></li>
+			<li class="text-white text-wrap underline"><a class="nav-link" href="#HOW_TO_INSTALL_JQUERY?">How to install jQuery?</a></li>		
+			<li class="text-white text-wrap underline"><a class="nav-link" href="#syntax">Syntax</a></li>		
+			<li class="text-white text-wrap underline"><a class="nav-link" href="#selectors">Selectors</a></li>		
+			<li class="text-white text-wrap underline"><a class="nav-link" href="#events">Events</a></li>		
+			<li class="text-white text-wrap underline"><a class="nav-link" href="#effects" id="effect1">Effects</a></li>
+				<ul class="submenu" id="submenu1" style="display:none;">
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#menu-hide">Hide</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#menu-fade">Fade</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#menu-slide">Slide</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#menu-animate">Animate</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#menu-stop">Stop</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#menu-callback">Callback</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#menu-chaining">Chaining</a></li>
+				</ul>	
+			<li class="text-white text-wrap underline"><a class="nav-link" href="#DOM_MANIPULATION" id="effect2">DOM manipulation</a></li>
+				<ul class="submenu" id="submenu2" style="display:none;">
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#getting">Getting</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#set">Set</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#add">Add</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#remove">Remove</a></li>
+				</ul>
+			<li class="text-white text-wrap underline"><a class="nav-link" href="#CSS_MANIPULATION" id="effect3">CSS manipulation</a></li>
+				<ul class="submenu" id="submenu3" style="display:none;">
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#addClass">AddClass</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#removeClass">RemoveClass</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#toggleClass">ToggleClass</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#css">CSS</a></li>
+				</ul>
+			<li class="text-white text-wrap underline"><a class="nav-link" href="#dimensions" id="effect4">Dimensions</a></li>	
+				<ul class="submenu" id="submenu4" style="display:none;">
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#width">Width</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#innerHeight">InnerHeight</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#outerWidth">OuterWidth</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#dimension">Doc. dimensions</a></li>
+				</ul>		
+			<li class="text-white text-wrap underline"><a class="nav-link" href="#traversing" id="effect5">Traversing</a></li>
+					<ul class="submenu" id="submenu5" style="display:none;">
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#ancestors">Ancestors</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#descendants">Descendants</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#siblings">Siblings</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#filtering">Filtering</a></li>
+				</ul>			
+			<li class="text-white text-wrap underline"><a class="nav-link" href="#AJAX" id="effect6">AJAX</a></li>
+					<ul class="submenu" id="submenu6" style="display:none;">
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#load">Load</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#get">Get</a></li>
+					<li class="text-white text-wrap underline"><a class="nav-links" href="#post">Post</a></li>
+				</ul>
+			</ul>
+		</nav>
+	<main class="offset-md-3 offset-lg-3 offset-xl-3 col-7 offset-5 offset-sm-4 col-sm-8 col-lg-9 pt-4 text-justify" id="main-doc">
+		<section class="main-section pl-2" id="WHAT_IS_JQUERY?"><header><h2>What is jQuery?</h2></header>
+			<p class="pl-2">jQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax. It is free, open-source software using the permissive MIT License. Web analysis (from 2017) indicates that it is the most widely deployed JavaScript library by a large margin.</p></section>
+		<section class="main-section pl-2" id="WHAT_JQUERY_CAN_MAKE_EASIER_FOR_US?"><header class="pl-2"><h2>What jQuery can make easier for us?</h2></header>
+			<p class="pl-2">jQuery's syntax is designed to make it easier to navigate a document, select DOM elements, create animations, handle events, and develop Ajax applications. jQuery also provides capabilities for developers to create plug-ins on top of the JavaScript library. This enables developers to create abstractions for low-level interaction and animation, advanced effects and high-level, themeable widgets. The modular approach to the jQuery library allows the creation of powerful dynamic web pages and Web applications.</p>
+			<h3 class="pl-2">About using jQuery</h3>
+			<p class="pl-2">jQuery, at its core, is a Document Object Model (DOM) manipulation library. The DOM is a tree-structure representation of all the elements of a Web page. jQuery simplifies the syntax for finding, selecting, and manipulating these DOM elements. For example, jQuery can be used for finding an element in the document with a certain property (e.g. all elements with an h1 tag), changing one or more of its attributes (e.g. color, visibility), or making it respond to an event (e.g. a mouse click).
+			jQuery also provides a paradigm for event handling that goes beyond basic DOM element selection and manipulation. The event assignment and the event callback function definition are done in a single step in a single location in the code. jQuery also aims to incorporate other highly used JavaScript functionality (e.g. fade ins and fade outs when hiding elements, animations by manipulating CSS properties).</p></section>	
+		<section class="main-section pl-2" id="HOW_TO_INSTALL_JQUERY?">
+			<header><h2>How to install jQuery?</h2></header>
+			<p class="pl-2">There is few ways to include jQuery into our application or website. We can do it:</p>
+				<h3>Via download</h3>
+			<p class="pl-2">There are two versions of jQuery available for downloading:
+				<a href="https://code.jquery.com/jquery-3.4.1.min.js" target="_blank">Production version</a> - this is for your live website because it has been minified and compressed
+				<a href="https://code.jquery.com/jquery-3.4.1.js" target="_blank">Development version</a> - this is for testing and development (uncompressed and readable code)
+				Both versions can be downloaded from <a href="http://jQuery.com" target="_blank">jQuery.com</a>.
+				The jQuery library is a single JavaScript file, and you reference it with the HTML <code>&lt;script&gt;</code> tag (notice that the <code>&lt;script&gt;</code> tag should be inside the <code>&lt;head&gt;</code> section):</p>
+				<div class="jumbotron"><code> &lt;head&gt;<br><br>
+				&nbsp;&nbsp;	&lt;script src="jquery-3.4.0.min.js"&gt;&lt;/script&gt;<br><br>
+				&lt;/head&gt;</code></div><p class="small">Tip: It's important to save jQuery file in the same folder as your application or change source path. Otherwise it won't work!</p>
+				<h3>Via CDN</h3>
+				<p class="pl-2">If you don't want to download and host jQuery yourself, you can include it from a CDN (Content Delivery Network).Both Google and Microsoft host jQuery.To use jQuery from Google or Microsoft, use one of the following:</p>
+					<div class="jumbotron"><h4>From Google:</h4>
+						<code> &lt;head&gt;<br><br>&nbsp;&nbsp; &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"&gt;&lt;/script&gt;<br><br> &lt;/head&gt;</code><br><br>
+						<h4>From Microsoft:</h4>
+						<code> &lt;head&gt; <br><br>&nbsp;&nbsp;&lt;script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"&gt;&lt;/script&gt;<br><br> &lt;/head&gt;</code></div>
+			</section>	
+		<section class="main-section pl-2" id="syntax"><header><h2>Syntax</h2></header>
+			<p class="pl-2">jQuery was designed to make programer work easier, simpler and faster. It achieve this purpose thanks to short and simply syntax, which is easy to understand even for beginner dewelopers.</p>
+			<p class="pl-2">Basic jQuery syntax looks like this:</p>
+			<div class="jumbotron"><code>$(selector).action()</code></div>
+			<ul>
+				<li><strong>$</strong> - it is the sing of beginning of jQuery command. It inform computer, that we want to use jQuery in this moment</li>
+				<li><strong>(selector)</strong> - it is any html elements, which we usually use in work with CSS files. Here we can declare what is point of our interest and what we want to change/animate or use in some other function.</li>
+				<li><strong>.action()</strong> - it is name of action which we want to perform on the choosen element</li>
+			</ul>
+			<p class="pl-2">At the beginning of your journey with jQuery you should remeber to start coding with the <code>.ready</code> event. It is command which run your application after webpage's components are loaded.</p>
+			<div class="jumbotron"><code>$(document).ready(function(){
+				<br>
+				<br>
+				 &nbsp;&nbsp; // jQuery methods go here...
+				<br>
+				<br>
+}); </code></div>
+		</section>
+		<section class="main-section pl-2" id="selectors"><header><h2>Selectors</h2></header>
+			<p class="pl-2"> jQuery selectors allow you to select and manipulate HTML element(s).
+				jQuery selectors are used to "find" (or select) HTML elements based on their name, id, classes, types, attributes, values of attributes and much more. It's based on the existing CSS Selectors, and in addition, it has some own custom selectors.
+				All selectors in jQuery start with the dollar sign and parentheses:<code> $()</code>.</p>
+			<p class="pl-2">In jQuery you can use:</p><ul>
+				<li>Current element: <code>$(this)</code> - selects currently active element.</li>
+				<li>All elements: <code>$(*)</code> - selects all elements in the document.</li>
+				<li>HTML elements: <code>$("p")</code> - selects all "p" elements.</li>
+				<li>Classes: <code>$(".navbar")</code> - selects all elements with class ".navbar"</li>
+				<li>IDs: <code>$("#main")</code> - selects element with ID "main"</li>
+				<li>Elements with specific attributes/classes etc.: <code>$("a[target!='_blank']")</code> - selects all elements with attribute <mark>target</mark> which value is <strong>not equal</strong> to <mark><code>_blank</code></mark>.
+				</li>
+			</ul>
+		</section>
+		<section class="main-section pl-2" id="events"><header><h2>Events</h2></header>
+			<p class="pl-2">If we have just selected element, we need to inform application, when we want to run our action. To give computer such information we can use jQuery event, which mean the same as interaction.</p>
+			<p class="pl-2">jQuery give us many ways to reading interactions:</p>
+			<table class="table table-striped table-hover table-responsive">
+				<thead>
+				<tr>
+					<th scope="col">Mouse</th>
+					<th scope="col">Keyboard</th>
+					<th scope="col">Form</th>
+					<th scope="col">Document/Window</th>
+				</tr>
+			</thead>
+				<tr>
+					<td>click</td>
+					<td>keypres</td>
+					<td>submit</td>
+					<td>load</td>
+				</tr>
+				<tr>
+					<td>dbclick</td>
+					<td>keydown</td>
+					<td>change</td>
+					<td>resize</td>
+				</tr>
+				<tr>
+					<td>mouseenter</td>
+					<td>keyup</td>
+					<td>focus</td>
+					<td>scroll</td>
+				</tr>
+				<tr>
+					<td>mouseleave</td>
+					<td></td>
+					<td>blur</td>
+					<td>unload</td>
+				</tr>
+			</table>
+		</section>
+		<section class="main-section pl-2" id="effects"><header><h2>Effects</h2></header>
+			<p class="pl-2">jQuery lets use many different effects, which make our work faster and more effective. You can find the most useful jQuery effects below with their code and examples of usage. Enjoy!</p>
+			<ol>
+				<li class="text-left" id="menu-hide">
+					<h4>hide/show/toggle</h4><p class="text-left"> - it's a command which lets hide or show any element of our html document. The toggle command is combine both of them and lets to switch between hide/show mode of element.</p>
+					<button id="toggle-button">Press here to hide/show element</button>
+					<div id="hide" class="container-fluid p-4 mt-1 mb-1 black"><p class="neon-text">It is div which can be toggled thanks to buttom above.</p></div>
+					<div class="jumbotron text-left">
+						<code>
+							$(document).ready(function(){<br><br>
+							&nbsp; $("#toggle-button").click(function(){<br><br>
+							&nbsp; &nbsp; &nbsp;$("#hide").toggle();<br><br>
+							&nbsp; &nbsp;});<br><br>
+							&nbsp;});
+						</code>
+					</div>
+				</li>
+				<li class="text-left" id="menu-fade"><h4>fadeIn/fadeOut/fadeToggle</h4><p class="text-left"> - works similar to the hide/show effect, but its enriched with fading effect. Moreover there is also another command: fadeTo. It lets for set ending level of elements opacity.</p>
+					<button id="fade-button">Press here to see fadeToggle in action</button>
+					<div id="fade" class="container-fluid p-4 mt-1 mb-1 black">
+						<p class="neon-text">It is fading div if you will be only kind enough to click the button above. Thanks in advance!</p>
+					</div>
+					<div class="jumbotron text-left">
+						<code>
+							$(document).ready(function(){<br><br>
+							&nbsp; $("#fade-button").click(function(){<br><br>
+							&nbsp; &nbsp; &nbsp;$("#fade").fadeToggle();<br><br>
+							&nbsp; &nbsp;});<br><br>
+							&nbsp;});
+						</code>
+					</div>
+					<button id="fadeTo-button">Press here to see fadeTo in action</button>
+					<div id="fadeTo" class="container-fluid p-4 mt-1 mb-1 black">
+						<p class="neon-text">It is fadeTo example</p>
+					</div>
+					<div class="jumbotron text-left">
+						<code>
+							$(document).ready(function(){<br><br>
+							&nbsp; $("#fadeTo-button").click(function(){<br><br>
+							&nbsp; &nbsp; &nbsp;$("#fadeTo").fadeTo("slow", 0.5);<br><br>
+							&nbsp; &nbsp;});<br><br>
+							&nbsp;});
+						</code>
+					</div>
+				</li>
+				<li class="text-left" id="menu-slide"><h4>slideDown/slideUp/slideToggle</h4><p class="text-left"> - works similar to the hide/show effect, but its enriched with slide effect.</p>
+					<button id="slide-button">Press here to see slideToggle in action</button>
+					<div id="slide" class="container-fluid p-4 mt-1 mb-1 black">
+						<p class="neon-text">It is sliding div if you will be only kind enough to click the button above. Thanks in advance!</p>
+					</div>
+					<div class="jumbotron text-left">
+						<code>
+							$(document).ready(function(){<br><br>
+							&nbsp; $("#slide-button").click(function(){<br><br>
+							&nbsp; &nbsp; &nbsp;$("#slide").slideToggle();<br><br>
+							&nbsp; &nbsp;});<br><br>
+							&nbsp;});
+						</code>
+					</div>
+				</li>
+				<li class="text-left" id="menu-animate"><h4>animate</h4><p class="text-left"> - lets make complicated animations in a simple way with css specifications changing in real time.</p>
+					<button id="animate-button">Press here to see example of animation</button>
+					<div class="container-fluid p-4 mt-1 mb-1 black">
+						<p class="neon-text" id="animate" style="position: relative;">It is the best animation in the world</p>
+					</div>
+					<div class="jumbotron text-left">
+						<code>
+							$(document).ready(function(){<br><br>
+							&nbsp; $("#animate-button").click(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({opacity: '0.5'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '200px', top: '-30px'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '-200px', top: '-30px'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '200px', top: '30px', opacity: '1'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '-200px', top: '30px'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '200px', top: '-30px'});<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '-200px', top: '-30px', opacity: '0.75'});<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '200px', top: '30px'});<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '-200px', top: '30px'});<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '200px', top: '-30px'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '-200px', top: '-30px'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '200px', top: '30px'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({left: '0px', top: '0px'}, "slow");<br><br>
+							&nbsp;&nbsp;&nbsp;$("#animate").animate({opacity: '1'});<br><br>
+							&nbsp;});<br><br>
+							});
+						</code>
+					</div>
+				</li>
+				<li class="text-left" id="menu-stop"><h4>stop</h4><p class="text-left"> - can be used to stopped all animations and effects before their ending</p>
+					<button id="start-button">Pres here to see animation, which we can stop thanks to button below</button><br>
+					<button id="stop-button">Press here to see stop in action</button>
+					<div id="stop" class="container-fluid p-4 mt-1 mb-1 black">
+						<p class="neon-text">It is as slow animation as old elephant with broken leg. If you want to stop this ridiculous animation you have to press proper button.</p>
+					</div>
+					<div class="jumbotron text-left">
+						<code>
+								$(document).ready(function(){<br><br>
+								&nbsp;&nbsp;$("#start-button").click(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;&nbsp;$("#stop").fadeToggle(5000);<br><br>
+								&nbsp;&nbsp;});<br><br>
+								&nbsp;&nbsp;$("#stop-button").click(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;&nbsp;$("#stop").stop();<br><br>
+								&nbsp;&nbsp;});<br><br>
+								});
+						</code>
+					</div>
+				</li>
+				<li class="text-left" id="menu-callback"><h4>callback</h4><p class="text-left"> - it's function which is running after current function end.</p>
+					<button id="callback-button">Press here to hide/show element and see the callback effect.</button>
+					<div id="callback" class="container-fluid p-4 mt-1 mb-1 black"><p class="neon-text">It is div which can be toggled thanks to buttom above and has callback alert, which will inform you when it's toggling will have finished.</p></div>
+					<div class="jumbotron text-left">
+						<code>
+							$(document).ready(function(){<br><br>
+							&nbsp; $("#callback-button").click(function(){<br><br>
+							&nbsp; &nbsp; &nbsp;$("#callback").toggle("slow", function();{<br><br>
+							&nbsp; &nbsp; &nbsp;&nbsp;alert("Element has just toggled");<br><br>
+							&nbsp; &nbsp; &nbsp;&nbsp;});<br><br>
+							&nbsp; &nbsp;});<br><br>
+							&nbsp;});
+						</code>
+					</div>
+				</li>
+				<li class="text-left" id="menu-chaining"><h4>chaining</h4><p class="text-left"> - it's jQuery property, which allow us to create all chains with command. jQuery lets for using "enter", so our code still can be clear and readable.</p>
+					<button id="chain-button">Press here to hide/show element and see effect with usage of command chain.</button>
+					<div id="chain" class="container-fluid p-4 mt-1 mb-1 black"><p class="neon-text" style="position: relative !important;">It is div which show us possibility of jQuery chains.</p></div>
+					<div class="jumbotron text-left">
+						<code>
+							$(document).ready(function(){<br><br>
+							&nbsp;$("#chain-button").click(function(){<br><br>
+							&nbsp;&nbsp;$("#chain").css("background-color", "#00028c")<br><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;.slideUp(2500)<br><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;.slideDown(2500)<br><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;.animate({opacity: '0.5'}, 800)<br><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;.animate({opacity: '1'}, 300)<br><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;.animate({opacity: '0.5'}, 800)<br><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;.animate({opacity: '1'}, 300)<br><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;.animate({opacity: '0.5'}, 800)<br><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;.animate({opacity: '1'}, 300);<br><br>
+							&nbsp;&nbsp;});<br><br>
+							&nbsp;});
+						</code>
+					</div>
+				</li>
+			</ol>
+		</section>	
+		<section class="main-section pl-2" id="DOM_MANIPULATION"><header><h4>DOM manipulation</h4></header>
+			<p class="pl-2">jQuery contains powerful methods for changing and manipulating HTML elements and attributes. It lets for including advanced modifies into the DOM tree in simply way.</p>
+				<ol>
+					<li class="text-left" id="getting"><h4>getting</h4><p> - it's jQuery method, which lets for using three kind of values:</p>
+						<ul>
+							<li><code>text()</code> - Sets or returns the text content of selected elements</li>
+							<li><code>html()</code> - Sets or returns the content of selected elements (including HTML markup)</li>
+							<li><code>val()</code> - Sets or returns the value of form fields</li>
+						</ul>
+						<p>You can find some examples of each kind of <code>get</code> usage.</p>
+						<div id="getBox" class="container-fluid p-4 mt-1 mb-1 black text-center neon-text"><button id="getText">This button show you text from box below.</button>
+							<div class="example"><p id="gotText">Some text</p></div>
+						</div>
+						<p>Here you can see how simple is code for getting some text using jQuery:</p>
+						<div class="jumbotron text-left">
+							<p>
+								<code>
+								&nbsp;$(document).ready(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#getText").click(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;alert("Text: "+ $("#gotText").text())<br><br>
+								&nbsp;&nbsp;});<br><br>
+								&nbsp;});	
+							</code>
+						</p>
+						</div>
+						<p>Here you can see example of <code>html()</code> usage.</p>
+						<div id="htmlBox" class="container-fluid p-4 mt-1 mb-1 black text-center neon-text"><button id="getHtml">This button show you all html from box below.</button>
+							<div class="example" id="gotHtml"><p>Some text</p></div>
+						</div>
+						<p class="small">You have to remember that .html return all markup from inside of chosen element (not his own markups!).</p>
+						<p>Here you can see how simple is code for getting some part of html document using jQuery:</p>
+						<div class="jumbotron text-left">
+								<p>
+									<code>
+									&nbsp;$(document).ready(function(){<br><br>
+									&nbsp;&nbsp;&nbsp;$("#getHtml").click(function(){<br><br>
+									&nbsp;&nbsp;&nbsp;alert("Text: "+ $("#gotHtml").html())<br><br>
+									&nbsp;&nbsp;});<br><br>
+									&nbsp;});	
+								</code>
+							</p>
+						</div>
+						<p>Here you can see example of <code>val()</code> usage:</p>
+						<div id="valBox" class="container-fluid p-4 mt-1 mb-1 black text-center neon-text"><button id="getVal">This button show you text from input below.</button>
+							<div class="example"><input id="gotVal" style="margin-top: 5px;" placeholder="Your text"></div>
+						</div>
+						<p>Here you can see how simple is code for getting values using jQuery:</p>
+						<div class="jumbotron text-left">
+								<p>
+									<code>
+									&nbsp;$(document).ready(function(){<br><br>
+									&nbsp;&nbsp;&nbsp;$("#getVal").click(function(){<br><br>
+									&nbsp;&nbsp;&nbsp;alert("Text: "+ $("#gotVal").val());<br><br>
+									&nbsp;&nbsp;});<br><br>
+									&nbsp;});	
+								</code>
+							</p>
+						</div>
+						<p>Here you can see example of <code>attr()</code> usage:</p>
+						<div id="attrBox" class="container-fluid p-4 mt-1 mb-1 black text-center neon-text"><button id="getAttr">This button show you href attribute of link below.</button>
+							<div class="example"><p><a id="gotAttr" href="http://www.w3schools.com" target="_blank" style="color:black;">W3 School</a></p></div>
+						</div>
+						<p>Here you can see how simple is code for getting specific attibutes using jQuery:</p>
+						<div class="jumbotron text-left">
+								<p>
+									<code>
+									&nbsp;$(document).ready(function(){<br><br>
+									&nbsp;&nbsp;&nbsp;$("#getAttr").click(function(){<br><br>
+									&nbsp;&nbsp;&nbsp;alert("Text: "+ $("#gotAttr").attr("href"));<br><br>
+									&nbsp;&nbsp;});<br><br>
+									&nbsp;});	
+								</code>
+							</p>
+						</div>
+				</li>
+				<li class="text-left" id="set"><h4>set</h4><p> - it's jQuery command, which lets for setting values of html elements based on the typology from get-chapter:</p>
+					<p>Here you can see example of <code>set()</code> usage:</p>
+					<div id="setTextBox" class="container-fluid p-4 mt-1 mb-1 black text-center neon-text"><button id="setText">Set "hello world!" below</button>
+						<div class="example"><p><a id="gotSetText" style="color:black;">Hi!</a></p></div>
+					</div>
+					<p>Here you can see how simple is code for setting text using jQuery:</p>
+					<div class="jumbotron text-left">
+							<p>
+								<code>
+								&nbsp;$(document).ready(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#setText").click(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#gotSetText").text("hello world!");<br><br>
+								&nbsp;&nbsp;});<br><br>
+								&nbsp;});	
+							</code>
+						</p>
+					</div>
+					<div id="setHtmlBox" class="container-fluid p-4 mt-1 mb-1 black text-center neon-text"><button id="setHtml">Set html bold text below</button>
+						<div class="example"><p><a id="gotSetHtml" style="color:black;">Hi!</a></p></div>
+					</div>
+					<p>Here you can see how simple is code for setting html using jQuery:</p>
+					<div class="jumbotron text-left">
+							<p>
+								<code>
+								&nbsp;$(document).ready(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#setHtml").click(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#gotSetHtml").html('&lt;b&gt;hello world!&lt;/b&gt;');<br><br>
+								&nbsp;&nbsp;});<br><br>
+								&nbsp;});	
+							</code>
+						</p>
+					</div>
+					<div id="setValBox" class="container-fluid p-4 mt-1 mb-1 black text-center neon-text"><button id="setVal">Set value of input field below</button>
+						<div class="example"><input value="none" id="gotSetVal" class="m-2"></div>
+					</div>
+					<p>Here you can see how simple is code for setting html using jQuery:</p>
+					<div class="jumbotron text-left">
+							<p>
+								<code>
+								&nbsp;$(document).ready(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#setVal").click(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#gotSetVal").val('Well done!');<br><br>
+								&nbsp;&nbsp;});<br><br>
+								&nbsp;});	
+							</code>
+						</p>
+					</div>
+					<div id="setAttrBox" class="container-fluid p-4 mt-1 mb-1 black text-center neon-text"><button id="setAttr">Set href attribute for link below</button>
+						<div class="container-fluid p-4 mt-1 mb-1 black"><a class="neon-text" id="gotSetAttr">www.w3schools.com</a></div>
+					</div>
+					<p>Here you can see how simple is code for setting html using jQuery:</p>
+					<div class="jumbotron text-left">
+							<p>
+								<code>
+								&nbsp;$(document).ready(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#setAttr").click(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#gotSetAttr").attr('href', 'http://www.w3schools.com');<br><br>
+								&nbsp;&nbsp;});<br><br>
+								&nbsp;});	
+							</code>
+						</p>
+					</div>
+				</li>
+				<li class="text-left" id="add"><h4>add</h4><p> - it's jQuery command, which lets for creating new html elements. We will look at four jQuery methods that are used to add new content:</p>
+					<ul>
+						<li><code>append()</code> - Inserts content at the end of the selected elements</li>
+						<li><code>prepend()</code> - Inserts content at the beginning of the selected elements</li>
+						<li><code>after()</code> - Inserts content after the selected elements</li>
+						<li><code>before()</code> - Inserts content before the selected elements</li>
+					</ul>
+						<ol>
+							<li>
+								<p>Here you can see example of <code>append()</code> usage:</p>
+								<div id="appendBox" class="container-fluid p-4 mt-1 mb-1 black text-center neon-text"><button id="appendText">Add some content below</button>
+								<div class="container-fluid p-4 mt-1 mb-1 black"><p class="neon-text" id="appendedText">Hi </p></div>
+								</div>
+								<p>Here you can see how simple is code for adding text using jQuery:</p>
+								<div class="jumbotron text-left">
+									<p>
+										<code>
+										&nbsp;$(document).ready(function(){<br><br>
+										&nbsp;&nbsp;&nbsp;$("#appendText").click(function(){<br><br>
+										&nbsp;&nbsp;&nbsp;$("#appendedText").append("sunny!");<br><br>
+										&nbsp;&nbsp;});<br><br>
+										&nbsp;});	
+										</code>
+									</p>
+								</div>
+							</li>
+							<li>
+								<p>Here you can see example of <code>preppend()</code> usage:</p>
+								<div id="prependBox" class="container-fluid p-4 mt-1 mb-1 black text-center neon-text"><button id="prependText">Add some content below</button>
+								<div class="container-fluid p-4 mt-1 mb-1 black"><p class="neon-text" id="prependedText">time ago</p>
+									<p>There was a honest man!</p></div>
+								</div>
+								<p>Here you can see how simple is code for adding text using jQuery:</p>
+								<div class="jumbotron text-left">
+									<p>
+										<code>
+										&nbsp;$(document).ready(function(){<br><br>
+										&nbsp;&nbsp;&nbsp;$("#prependText").click(function(){<br><br>
+										&nbsp;&nbsp;&nbsp;$("#prependedText").prepend(" long ");<br><br>
+										&nbsp;&nbsp;});<br><br>
+										&nbsp;});	
+										</code>
+									</p>
+								</div>
+							</li>
+							<li>
+								<p>Here you can see example of <code>after()</code> usage:</p>
+								<div id="afterBox" class="container-fluid p-4 mt-1 mb-1 black text-center neon-text"><button id="afterText">Add some balls next to guy below</button>
+								<div class="container-fluid p-4 mt-1 mb-1 black" style="overflow: auto;"><p class="neon-text" id="afteredText">I'd like to see balls below!</p>
+								</div>
+								</div>
+								<p>Here you can see how simple is code for adding elements after using jQuery:</p>
+								<div class="jumbotron text-left">
+									<p>
+										<code>
+										&nbsp;$(document).ready(function(){<br><br>
+										&nbsp;&nbsp;&nbsp;var ball = "&lt;div class='BALL'&gt;&lt;/div&gt;";<br><br>
+										&nbsp;&nbsp;&nbsp;$("#afterText").click(function(){<br><br>
+										&nbsp;&nbsp;&nbsp;$("#afteredText").after(ball);<br><br>
+										&nbsp;&nbsp;});<br><br>
+										&nbsp;});	
+										</code>
+									</p>
+								</div>
+							</li>
+							<li>
+								<p>Here you can see example of <code>before()</code> usage:</p>
+								<div id="beforeBox" class="container-fluid p-4 mt-1 mb-1 black text-center neon-text"><button id="beforeText">Add one point of manual loading</button>
+								<div class="container-fluid p-4 mt-1 mb-1 black" style="overflow: auto;"><p class="neon-text" id="beforedText">I'd like to see full loading and myself below!</p>
+								</div>
+								</div>
+								<p>Here you can see how simple is code for adding elements after using jQuery:</p>
+								<div class="jumbotron text-left">
+									<p>
+										<code>
+										&nbsp;$(document).ready(function(){<br><br>
+										&nbsp;&nbsp;&nbsp;var stick = "&lt;div class='STICK'&gt;&lt;/div&gt;";<br><br>
+										&nbsp;&nbsp;&nbsp;$("#beforeText").click(function(){<br><br>
+										&nbsp;&nbsp;&nbsp;$("#beforedText").before(stick);<br><br>
+										&nbsp;&nbsp;});<br><br>
+										&nbsp;});	
+										</code>
+									</p>
+								</div>
+							</li>
+						</ol>
+					</li>
+					<li class="text-left" id="remove"><h4>remove</h4><p> - it's jQuery command, which lets for removing both all elements and their child elements. We can use jQuery to remove elements on two ways:</p>
+						<ul>
+							<li><code>remove()</code> - Removes the selected element (and its child elements)</li>
+							<li><code>empty()</code> - Removes the child elements from the selected element</li>
+						</ul>
+						<p>Here you can see example of<code>remove()</code> usage.</p>
+						<div id="removeBox" class="container-fluid p-4 mt-1 mb-1 black text-center neon-text"><button id="removeText">This button remove element below.</button>
+							<div class="example" id="removedText"><p>Some text</p></div>
+						</div>
+						<p>Here you can see how simple is code for removing some element using jQuery:</p>
+						<div class="jumbotron text-left">
+							<p>
+								<code>
+								&nbsp;$(document).ready(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#removeText").click(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#removedText").remove();<br><br>
+								&nbsp;&nbsp;});<br><br>
+								&nbsp;});	
+							</code>
+						</p>
+						</div>
+						<p>Here you can see example of <code>empty()</code> usage.</p>
+						<div id="emptyBox" class="container-fluid p-4 mt-1 mb-1 black text-center neon-text"><button id="emptyText">This button empting element below.</button>
+							<div class="example" id="emptedText"><p>Some text</p></div>
+						</div>
+						<p>Here you can see how simple is code for empting some element using jQuery:</p>
+						<div class="jumbotron text-left">
+							<p>
+								<code>
+								&nbsp;$(document).ready(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#emptyText").click(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#emptedText").empty();<br><br>
+								&nbsp;&nbsp;});<br><br>
+								&nbsp;});	
+							</code>
+						</p>
+						</div>
+					</li>
+				</ol>
+			</section>
+			<section class="main-section pl-2" id="CSS_MANIPULATION">
+				<header><h4>CSS manipulation</h4></header><p class="pl-2">- jQuery has several methods for CSS manipulation. They can make our work much more easier and faster.</p>
+				<ol>
+					<li class="text-left"><p>We will look at the following methods:</p>
+						<ul>
+							<li><code>addClass()</code> - Adds one or more classes to the selected elements</li>
+							<li><code>removeClass()</code> - Removes one or more classes from the selected elements</li>
+							<li><code>toggleClass()</code> - Toggles between adding/removing classes from the selected elements</li>
+							<li><code>css()</code> - Sets or returns the style attribute</li>
+						</ul>
+					</li>
+					<li>
+					<h4>addClass</h4>
+					<p id="addClass">Here you can see example of <code>addClass()</code> usage.</p>
+					<div id="addClassBox" class="container-fluid p-4 mt-1 mb-1 text-center">
+						<button id="addClassText">This button add class to the box around.</button>
+						<div><p>Some text</p>
+						</div>
+					</div>
+					<p>Here you can see how simple is code for adding class to some element using jQuery:</p>
+					<div class="jumbotron text-left">
+						<p>
+							<code>
+								&nbsp;$(document).ready(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#addClassText").click(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#addClassBox").addClass("black neon-text");<br><br>
+								&nbsp;&nbsp;});<br><br>
+								&nbsp;});	
+							</code>
+						</p>
+					</div>
+				</li>
+				<li>
+					<h4>removeClass</h4>
+					<p id="removeClass">Here you can see example of <code>removeClass()</code> usage.</p>
+					<div id="removeClassBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+					<button id="removeClassText">This button remove class from the box around.</button>
+						<div><p>Some text</p>
+						</div>
+					</div>
+					<p>Here you can see how simple is code for removing class from some element using jQuery:</p>
+					<div class="jumbotron text-left">
+						<p>
+							<code>
+							&nbsp;$(document).ready(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("#removeClassText").click(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("#removeClassBox").removeClass("black neon-text");<br><br>
+							&nbsp;&nbsp;});<br><br>
+							&nbsp;});	
+							</code>
+						</p>
+					</div>
+				</li>
+				<li>
+					<h4>toggleClass</h4>
+					<p id="toggleClass">Here you can see example of <code>toggleClass()</code> usage.</p>
+					<div id="toggleClassBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+					<button id="toggleClassText">This button toggle boxes around class.</button>
+						<div><p>Some text</p>
+						</div>
+					</div>
+					<p>Here you can see how simple is code for toggling some elements class using jQuery:</p>
+					<div class="jumbotron text-left">
+						<p>
+							<code>
+							&nbsp;$(document).ready(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("#toggleClassText").click(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("#toggleClassBox").toggleClass("black neon-text");<br><br>
+							&nbsp;&nbsp;});<br><br>
+							&nbsp;});	
+							</code>
+						</p>
+					</div>
+				</li>
+				<li>
+					<h4>css attributes manipulatnion</h4>
+					<p id="css">Here you can see example of <code>css()</code> usage.</p>
+					<div id="cssBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+					<button id="cssText">This button set some css attributes to box around.</button>
+						<div><p>Some text</p>
+						</div>
+					</div>
+					<p>Here you can see how simple is code for setting css attributes to some element using jQuery:</p>
+					<div class="jumbotron text-left">
+						<p>
+							<code>
+							&nbsp;$(document).ready(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("#cssText").click(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("#cssBox").css({"background-color":"brown","color":"black","font-size":"22px"});<br><br>
+							&nbsp;&nbsp;});<br><br>
+							&nbsp;});	
+							</code>
+						</p>
+					</div>
+				</li>
+			</ol>
+			</section>
+			<section class="main-section pl-2" id="dimensions">
+				<header><h4>Dimensions</h4></header> <p class="pl-2">- With jQuery, it is easy to work with the dimensions of elements and browser window.</p>
+				<ol>
+					<li class="text-left"><p>jQuery has several important methods for working with dimensions:</p>
+						<ul>
+							<li><code>width()</code> - method sets or returns the width of an element (excludes padding, border and margin).</li>
+							<li><code>height()</code> - method sets or returns the height of an element (excludes padding, border and margin).</li>
+							<li><code>innerWidth()</code> -  method returns the width of an element (includes padding).</li>
+							<li><code>innerHeight()</code> -  method returns the height of an element (includes padding).</li>
+							<li><code>outerWidth()</code> - method returns the width of an element (includes padding and border)</li>
+							<li><code>outerHeight()</code> - method returns the width of an element (includes padding and border)</li>
+							<li><code>outerWidth(true)</code> -method returns the width of an element (includes padding, border, and margin)</li>
+							<li><code>outerHeight(true)</code> - method returns the height of an element (includes padding, border, and margin)</li>
+						</ul></li>
+					<li>
+						<h4>width</h4><p id="width">Here you can see example of <code>width()</code> usage.</p>
+						<div id="widthBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+							<button id="widthText">This button get width of his parents element.</button>
+							<div><p>Some text</p>
+							</div>
+						</div>
+						<p>Here you can see how simple is code for getting elements width using jQuery:</p>
+						<div class="jumbotron text-left">
+							<p>
+								<code>
+								&nbsp;$(document).ready(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#widthText").click(function(){{<br><br>
+								&nbsp;&nbsp;&nbsp;alert("Box width=" + $("#widthBox").width() + "px");<br><br>
+								&nbsp;&nbsp;});<br><br>
+								&nbsp;});	
+								</code>
+							</p>
+						</div>
+					</li>
+					<li>
+						<h4>innerHeight</h4>
+						<p id="innerHeight">Here you can see example of <code>innerHeight()</code> usage.</p>
+						<div id="innerHeightBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+							<button id="innerHeightText">This button get height of his parent element.</button>
+							<div><p>Some text</p>
+							</div>
+						</div>
+						<p>Here you can see how simple is code for getting elements height using jQuery:</p>
+						<div class="jumbotron text-left">
+							<p>
+								<code>
+								&nbsp;$(document).ready(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#innerHeightText").click(function(){{<br><br>
+								&nbsp;&nbsp;&nbsp;alert("Box height (include padding) = " + $("#innerHeightBox").innerHeight() + "px");<br><br>
+								&nbsp;&nbsp;});<br><br>
+								&nbsp;});	
+								</code>
+							</p>
+						</div>
+					</li>
+					<li>
+						<h4>outrerWidth(true)</h4>
+						<p id="outerWidth">Here you can see example of <code>outerWidth(true)</code> usage.</p>
+						<div id="outerWidthBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+							<button id="outerWidthText">This button get width of his parent element.</button>
+							<div><p>Some text</p>
+							</div>
+						</div>
+						<p>Here you can see how simple is code for getting document dimensions using jQuery:</p>
+						<div class="jumbotron text-left">
+							<p>
+								<code>
+								&nbsp;$(document).ready(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#outerWidthText").click(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;alert("Box width (include padding, margin and border) = " + <br><br>&nbsp;&nbsp;&nbsp;$("#outerWidthBox").outerWidth(true) + "px");<br><br>
+								&nbsp;&nbsp;});<br><br>
+								&nbsp;});	
+								</code>
+							</p>
+						</div>
+					</li>
+					<li>
+						<h4>Window dimensions</h4>
+						<p id="dimension">Here you can see example of dimension properties usage:</p>
+						<div id="dimensionBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+							<button id="dimensionText">This button get width and height of document element.</button>
+							<div><p>Some text</p>
+							</div>
+						</div>
+						<p>Here you can see how simple is code for getting elements height using jQuery:</p>
+						<div class="jumbotron text-left">
+							<p>
+								<code>
+								$("#dimensionText").click(function(){<br><br>
+								 &nbsp;&nbsp; var txt = "";<br><br>
+								 &nbsp;&nbsp;&nbsp;&nbsp;txt += "Document width/height: " + $(document).width();<br><br>
+								 &nbsp;&nbsp;&nbsp;&nbsp; txt += "x" + $(document).height() + "px" + "\n";<br><br>
+								 &nbsp;&nbsp;&nbsp;&nbsp;txt += "Window width/height: " + $(window).width();<br><br>
+								 &nbsp;&nbsp;&nbsp;&nbsp;txt += "x" + $(window).height() + "px";<br><br>
+								 &nbsp;&nbsp;alert(txt);<br><br>
+								});
+								</code>
+							</p>
+						</div>
+					</li>
+				</ol>
+			</section>
+			<section class="main-section pl-2" id="traversing"><header><h4>Traversing</h4></header>
+				<p class="pl-2">jQuery traversing, which means "move through", are used to "find" (or select) HTML elements based on their relation to other elements. Start with one selection and move through that selection until you reach the elements you desire.</p>
+				<p class="pl-2">In general we can divide DOM tree into:</p>
+				<ul>
+					<li>Ancestors</li>
+					<li>Descendants</li>
+					<li>Siblings</li>
+				</ul>
+				<ol>
+					<li id="ancestors"><h4>ancestors</h4>
+						<p>jQuery give us following ancestors commands:</p>
+						<ul>
+							<li><code>parent()</code> -  method returns the direct parent element of the selected element.This method only traverse a single level up the DOM tree.</li> 
+							<li><code>parents()</code> -  method returns all ancestor elements of the selected element, all the way up to the document's root element.</li>
+							<li><code>parentsUntil()</code> - method returns all ancestor elements between two given arguments.</li>
+						</ul>
+						<ol>
+							<li>
+								<h4>parent()</h4>
+								<p id="parent"> - Here you can see example of parent properties usage:</p>
+								<div id="parentBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+									<div id="father" style="border: solid yellow;">
+							<button id="parentText">This button change color of his daddy's borders.</button>
+							<div id="kid"><p>Some text</p>
+							</div></div>
+						</div>
+						<p>Here you can see how simple is code for change color of parent element border using jQuery:</p>
+						<div class="jumbotron text-left">
+							<p>
+								<code>
+								&nbsp;$(document).ready(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#parentText").click(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#kid").parent().css({"border-color":"green"});<br><br>
+								&nbsp;&nbsp;});<br><br>
+								&nbsp;});	
+								</code>
+							</p>
+						</div>
+					</li>
+					<li>
+						<h4>parents()</h4>
+						<p id="parents"> - Here you can see example of parents properties usage:</p>
+								<div id="parentsBox" class="container-fluid p-4 m-2 text-center neon-text black">
+									<div id="mother" class="m-2" style="border: solid red;">
+										<div id="fathers" class="m-2" style="border: solid yellow;">
+											<button id="parentsText">This button change color of all ancestors borders.</button><div id="kids"><p>Some text</p>
+											</div>
+										</div>
+									</div>
+								</div>
+						<p>Here you can see how simple is code for change color of all ancestor-elements borders using jQuery:</p>
+						<div class="jumbotron text-left">
+							<p>
+								<code>
+								&nbsp;$(document).ready(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#parentsText").click(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#kids").parents().css({"border-color":"green"});<br><br>
+								&nbsp;&nbsp;});<br><br>
+								&nbsp;});	
+								</code>
+							</p>
+						</div>
+						<h4>parentsUntil()</h4>
+						<p id="parentsUntil"> - Here you can see example of parentsUntil properties usage:</p>
+								<div id="parentsUntilBox" class="container-fluid p-4 m-2 text-center neon-text black">
+									<div id="motherUntil" class="m-2" style="border: solid red;">
+										<div id="fathersUntil" class="m-2" style="border: solid yellow;">
+											<button id="parentsUntilText">This button change color of all his ancestors backgrounds and borders until&lt;li&gt;.</button><div id="kidsUntil"><p>Some text</p>
+											</div>
+										</div>
+									</div>
+								</div>
+						<p>Here you can see how simple is code for change color of all ancestor-elements borders using jQuery:</p>
+						<div class="jumbotron text-left">
+							<p>
+								<code>
+								&nbsp;$(document).ready(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#parentsUntilText").click(function(){<br><br>
+								&nbsp;&nbsp;&nbsp;$("#kidsUntil").parentsUntil("li").css({"border-color":"green", "background-color":"blue"});<br><br>
+								&nbsp;&nbsp;});<br><br>
+								&nbsp;});	
+								</code>
+							</p>
+						</div>
+					</li>
+				</ol>
+			</li>
+				<li id="descendants">
+					<h4>descendants</h4>
+					<p>jQuery give us following descendants commands:</p>
+					<ul>
+						<li><code>children()</code> - method returns all direct children of the selected element. This method only traverses a single level down the DOM tree.</li> 
+						<li><code>find()</code> - method returns descendant elements of the selected element, all the way down to the last descendant.</li>
+					</ul>
+					<ol>
+						<li>
+							<h4>children()</h4>
+							<p id="children"> - Here you can see example of children properties usage:</p>
+							<div id="childrenBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+								<button id="childrenText">This button change color of direct childrens background of "descendants".</button>
+								<div><p>Some text</p>
+								</div>
+							</div>
+					<p>Here you can see how simple is code for change color of children elements background using jQuery:</p>
+					<div class="jumbotron text-left">
+						<p>
+							<code>
+							&nbsp;$(document).ready(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("#childrenText").click(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("#descendants").children().css({"background-color":"blue"});<br><br>
+							&nbsp;&nbsp;});<br><br>
+							&nbsp;});	
+							</code>
+						</p>
+					</div>
+					<li>
+						<h4>find()</h4>
+							<p id="find"> - Here you can see example of find properties usage:</p>
+							<div id="findBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+								<button id="findText">This button change color of all li elements background inside body.</button><button id="reset">Here you can remove this change</button>
+								<div><p>Some text</p>
+								</div>
+							</div>
+					<p>Here you can see how simple is code for change color of finding any element down on the DOM tree using jQuery:</p>
+					<div class="jumbotron text-left">
+						<p>
+							<code>
+							&nbsp;$(document).ready(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("#findText").click(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("body").find("li").css({"border":"solid green", "opacity":"0.5"});<br><br>
+							&nbsp;&nbsp;&nbsp;$("#reset").click(function(){<br><br>
+							&nbsp;&nbsp;&nbsp;$("body").find("li").css({"border":"none", "opacity":"1"});<br><br>
+							&nbsp;&nbsp;});<br><br>
+							&nbsp;});	
+							</code>
+						</p>
+					</div>
+				</li>
+			</ol>
+		</li>
+		<li id="siblings">
+				<h4>siblings</h4>
+				<p>jQuery give us following siblings commands:</p>
+				<ul>
+					<li><code>siblings()</code> - method returns all sibling elements of the selected element.</li> 
+					<li><code>next()</code> - method returns the next sibling element of the selected element.</li>
+					<li><code>nextAll()</code> -  method returns all next sibling elements of the selected element.</li>
+					<li><code>nextUntil()</code> - method returns all next sibling elements between two given arguments.</li>
+					<li><code>prev()</code> - method returns the previous sibling element of the selected element.</li>
+					<li><code>prevAll()</code> - method returns all previous sibling elements of the selected element.</li>
+					<li><code>prevUntil()</code> - method returns all previous sibling elements between two given arguments.</li>
+				</ul>
+				<ol>
+					<li>
+						<h4>siblings()</h4>
+						<p id="sibling"> - Here you can see example of siblings properties usage:</p>
+						<div id="siblingsBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+							<button id="siblingsText">This button change color of all sibling borders of "some text" element.</button>
+							<div><p>Sister of "some text"</p><p id="firstSibling">Some text</p><p>Brother of "some text"</p>
+							</div>
+						</div>
+				<p>Here you can see how simple is code for change color of sibling elements borders using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#siblingsText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#firstSibling").siblings().css({"border":"solid red", "opacity":"0.5"});<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+							</p>
+						</div>
+					</li>
+				<li>
+						<h4>next()</h4>
+						<p id="next"> - Here you can see example of next properties usage:</p>
+						<div id="nextBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+							<button id="nextText">This button change color of next sibling borders of "some text" element.</button>
+							<div><p>Sister of "some text"</p><p id="nextSibling">Some text</p><p>Brother of "some text"</p>
+							</div>
+						</div>
+				<p>Here you can see how simple is code for change color of next element borders using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#nextText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#nextSibling").next().css({"border":"solid red", "opacity":"0.5"});<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+					</p>
+				</div>
+			</li>
+				<li>
+					<h4>prevAll()</h4>
+						<p id="prevAll"> - Here you can see example of prevAll properties usage:</p>
+						<div id="prevAllBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+							<button id="prevAllText">This button change color of all previous siblings borders of "some text" element.</button>
+							<div><p>Little brother of "some text"</p><p>Sister of "some text"</p><p id="prevAllSibling">Some text</p><p>Brother of "some text"</p>
+							</div>
+						</div>
+				<p>Here you can see how simple is code for change color of prevAll element borders using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#prevAllText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#prevAllSibling").prevAll().css({"border":"solid red", "opacity":"0.5"});<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+					</p>
+				</div>
+			</li>
+			<li>
+				<h4>nextUntil()</h4>
+				<p id="nextUntil"> - Here you can see example of nextUntil properties usage:</p>
+						<div id="nextUntilBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+							<button id="nextUntilText">This button change color of all next siblings borders of "some text" elements till "Brother' element.</button>
+							<div><p id="nextUntilSibling">Some text</p><p>Little brother of "some text"</p><p>Sister of "some text"</p><p id="brotherNextUntilSibling">Brother of "some text"</p>
+							</div>
+						</div>
+				<p>Here you can see how simple is code for change color of nextUntil element borders using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#nextUntilText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#nextUntilSibling").nextUntil("#brotherNextUntil").css({"border":"solid red", "opacity":"0.5"});<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+					</p>
+				</div>
+			</li>
+		</ol>
+	</li>
+	<li id="filtering">
+		<h4>filtering</h4>
+		<p>jQuery give us following filtering commands:</p>
+		<ul>
+			<li><code>first()</code> - method returns the first element of the specified elements.</li> 
+			<li><code>last()</code> - method returns the last element of the specified elements.</li>
+			<li><code>eq()</code> - method returns an element with a specific index number of the selected elements. The index numbers start at 0, so the first element will have the index number 0 and not 1.</li>
+			<li><code>filter()</code> -The filter() method lets you specify a criteria. Elements that do not match the criteria are removed from the selection, and those that match will be returned.</li>
+			<li><code>not()</code> - method returns all elements that do not match the criteria. It is method opposite to filter.</li>
+		</ul>
+		<ol>
+			<li>
+				<h4>first()</h4>
+				<p id="first"> - Here you can see example of first properties usage:</p>
+				<div id="firstBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+					<button id="firstText">This button change color of first li elements background.</button>
+					<div><p>Some text</p>
+					</div>
+				</div>
+				<p>Here you can see how simple is code for change color of first elements background using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#firstText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("li").first().css("background-color","blue");<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+					</p>
+				</div>
+			</li>
+			<li>
+				<h4>last()</h4>
+				<p id="last"> - Here you can see example of last properties usage:</p>
+				<div id="lastBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+					<button id="lastText">This button change color of last p element background.</button>
+					<div><p class="last">Some text</p><p class="last">Another text</p><p class="last">And another text</p>
+					</div>
+				</div>
+				<p>Here you can see how simple is code for change color of last p element (with class "last") background using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#lastText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("p.last").last().css("background-color", "blue");<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+					</p>
+				</div>
+			</li>
+			<li>
+				<h4>eq()</h4>
+				<p id="eq"> - Here you can see example of eq properties usage:</p>
+				<div id="eqBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+					<button id="eqText">This button change color of third div with "this" class.</button>
+						<div class="BALL this"></div><div class="BALL this"></div><div class="BALL this"></div><div class="BALL this"></div><div class="BALL this"></div><div class="BALL this"></div><div class="BALL this"></div><div class="BALL this"></div><div class="BALL this"></div><div class="BALL this"></div>
+				</div>
+				<p>Here you can see how simple is code for change color of third div with class "this" using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#eqText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("div.this").eq(2).css("background-color", "blue");<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+					</p>
+				</div>
+			</li>
+			<li>
+				<h4>filter()</h4>
+				<p id="filter"> - Here you can see example of filter properties usage:</p>
+				<div id="filterBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+					<button id="filterText">This button change color of all divs with class ".filter".</button>
+						<div class="BALL"></div><div class="BALL filter"></div><div class="BALL filter"></div><div class="BALL"></div><div class="BALL filter"></div><div class="BALL"></div><div class="BALL filter"></div><div class="BALL"></div><div class="BALL filter"></div><div class="BALL"></div>
+				</div>
+				<p>Here you can see how simple is code for change color of all div with class ".filter" using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#filterText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("div").filter(".filter").css("background-color", "blue");<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+					</p>
+				</div>
+			</li>
+			<li>
+				<h4>not()</h4>
+				<p id="not"> - Here you can see example of not properties usage:</p>
+				<div id="notBox" class="container-fluid p-4 mt-1 mb-1 text-center neon-text black">
+					<button id="notText">This button change opacity of all divs without class ".filter".</button>
+					<div class="BALL"></div><div class="BALL filter"></div><div class="BALL filter"></div><div class="BALL"></div><div class="BALL filter"></div><div class="BALL"></div><div class="BALL filter"></div><div class="BALL"></div><div class="BALL filter"></div>
+				</div>
+				<p>Here you can see how simple is code for change opacity of all div without class ".filter" using jQuery:</p>
+				<div class="jumbotron text-left">
+					<p>
+						<code>
+						&nbsp;$(document).ready(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;$("#notText").click(function(){<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity: '0.5'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity: '0.2'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity: '0.5'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'1'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'0.5'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'0.2'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'0.5'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'1'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'0.5'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'0.2'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'0.5'}, "fast");<br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$("div").not(".filter").animate({opacity:'1'}, "fast");<br><br>
+						&nbsp;&nbsp;});<br><br>
+						&nbsp;});	
+						</code>
+					</p>
+				</div>
+			</li>
+		</ol>
+	</li>
+</ol>
+</section>
+		<section class="main-section pl-2" id="AJAX"><header><h4>AJAX</h4></header>
+			<p class="pl-2">AJAX = Asynchronous JavaScript and XML.<br>In short; AJAX is about loading data in the background and display it on the webpage, without reloading the whole page. Examples of applications using AJAX: Gmail, Google Maps, Youtube, and Facebook tabs.</p>
+				<p class="pl-2">In general we can divide AJAX into following type of commands:</p>
+				<ul>
+					<li><code>load()</code> - method loads data from a server and puts the returned data into the selected element.</li>
+					<li><code>Get()</code> - method requests data from the server with an HTTP GET request.</li>
+					<li><code>Post()</code> - method requests data from the server using an HTTP POST request.</li>
+				</ul>
+				<ol>
+					<li id="load"><h4>load()</h4>
+						<p style="display:inline-block; float: left;" class="mr-4">Syntax:</p>
+						<blockquote class="blockquote">$(selector).load(URL,data,callback);</blockquote>
+						<ul class="line-height">
+							<li>The required URL parameter specifies the URL you wish to load.</li>
+							<li>The optional data parameter specifies a set of querystring key/value pairs to send along with the request.</li>
+							<li>The optional callback parameter is the name of a function to be executed after the <code>load()</code> method is completed.</li>
+						</ul>
+						<p>I can't show you example of how this command works, because this page can't connect with any server. If you want to see live effect, you can visit <a href="https://www.w3schools.com/jquery/jquery_ajax_load.asp" target="_blank">w3schools.com</a>. Although I can't show you working code, I can show you example from w3 below. Enjoy!</p>
+						<div class="jumbotron text-left">
+							<p>
+								<code>
+									$("button").click(function(){<br><br>
+									 &nbsp;&nbsp;$("#div1").load("demo_test.txt", function(responseTxt, statusTxt, xhr){<br><br>
+									 &nbsp;&nbsp;&nbsp;if(statusTxt == "success<br><br>									 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("External content loaded successfully!");<br><br>
+									 &nbsp;&nbsp;&nbsp;if(statusTxt == "error")<br><br>
+									 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Error: " + xhr.status + ": " + xhr.statusText);<br><br>
+									 &nbsp;&nbsp; });<br><br>
+									});
+								</code>
+							</p>
+						</div>
+					</li>
+					<li id="get"><h4>get()</h4>
+						<p style="display:inline-block; float: left;" class="mr-4">Syntax:</p>
+						<blockquote class="blockquote">$.get(URL,callback);</blockquote>
+						<ul>
+							<li class="line-height">The required URL parameter specifies the URL you wish to request.</li>
+							<li class="line-height">The optional callback parameter is the name of a function to be executed if the request succeeds.</li>
+						</ul>
+						<p>I can't show you example of how this command works, because this page can't connect with any server. If you want to see live effect, you can visit <a href="https://www.w3schools.com/jquery/jquery_ajax_get_post.asp" target="_blank">w3schools.com</a>. Although I can't show you working code, I can show you example from w3 below. Enjoy!</p>
+						<div class="jumbotron text-left">
+							<p>
+								<code>
+									$("button").click(function(){<br><br>
+									 &nbsp;&nbsp;$.get("demo_test.asp", function(data, status){<br><br>
+									 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("Data: " + data + "\nStatus: " + status);<br><br>&nbsp;&nbsp; });<br><br>
+									});
+								</code>
+							</p>
+						</div>
+					</li><li id="post"><h4>post()</h4>
+						<p style="display:inline-block; float: left;" class="mr-4">Syntax:</p>
+						<blockquote class="blockquote">$.post(URL,data,callback);</blockquote>
+						<ul>
+							<li class="line-height">The required URL parameter specifies the URL you wish to request.</li>
+							<li class="line-height">The optional data parameter specifies some data to send along with the request.</li>
+							<li class="line-height">The optional callback parameter is the name of a function to be executed if the request succeeds.</li>
+						</ul>
+						<p>I can't show you example of how this command works, because this page can't connect with any server. If you want to see live effect, you can visit <a href="https://www.w3schools.com/jquery/jquery_ajax_get_post.asp" target="_blank">w3schools.com</a>. Although I can't show you working code, I can show you example from w3 below. Enjoy!</p>
+						<div class="jumbotron text-left">
+							<p>
+								<code>
+									$("button").click(function(){<br><br>
+									 &nbsp;&nbsp;$.post("demo_test_post.asp",<br><br>
+									 &nbsp;&nbsp;{<br><br>
+									 &nbsp;&nbsp;&nbsp;&nbsp;name: "Donald Duck",<br><br>
+									 &nbsp;&nbsp;&nbsp;&nbsp;city: "Duckburg"<br><br>
+									 &nbsp;&nbsp;},<br><br>
+									 &nbsp;&nbsp;function(data, status){<br><br>
+									 &nbsp;&nbsp;&nbsp;&nbsp;alert("Data: " + data + "\nStatus: " + status);<br><br>
+									 &nbsp;&nbsp;});<br><br>
+									});
+								</code>
+							</p>
+						</div>
+					</li>
+				</ol>
+		</section>
+	</main>
+	<footer class="container text-center black neon-text offset-md-3 offset-lg-3 offset-xl-3 col-7 offset-5 offset-sm-4 col-sm-8 col-lg-9 pt-4 pb-2" id="feet"><h5 id="source">Magical invisible sources of this page! Get links below!</h5>
+		<span style='visibility: hidden;'><a href='http://www.w3schools.com' class='neon-text' target='_blank'>http://www.w3schools.com</a><br><a href='https://jquery.com/' class='neon-text' target='_blank'>https://jquery.com</a></span></footer>
+</body>
