@@ -1,0 +1,110 @@
+.neon-text {
+		color: #00f9e2;
+		text-shadow: 0.5px 0.5px 3px white;
+	}
+	.black {
+		background-color: black;
+	}
+	.nav-link,
+	.nav-links {
+		color: white;
+	}
+	.nav-link:hover,
+	.nav-links:hover {
+		color: white;
+	}
+	.example {
+		width: 90%; 
+		height: 50px; 
+		background-color: #00f9e2; 
+		color: black; 
+		position: relative; 
+		left: 50%; transform: 
+		translateX(-50%);
+	}
+	.BALL {
+		float: left;
+		position: relative;
+		background-color: orange;
+		border: solid black;
+		height: 30px;
+		width: 30px;
+		border-radius: 50%;
+		margin: 2px;
+		padding: 0px;
+	}
+	.STICK {
+		float: left;
+		background-color: brown;
+		height: 40px;
+		width: 4px;
+		border-radius: 4px;
+		margin: 2px;
+		padding: 0px;
+	}
+	.line-height {
+		line-height: 35px;
+	}
+	#navbar {
+		height: 100vh;
+		overflow-y: auto;
+		overflow-x: hidden !important;
+	}
+	@media screen and (max-height: 640px){
+		.navlist {
+			overflow-x: hidden;
+			overflow-y: auto !important;
+		}
+	}
+	a {
+		position: relative;
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
+	a:hover {
+		transition: transform 0.3s linear;
+		transform: scale(1.05);
+	}
+	.underline {
+	  position: relative;
+	}
+	.underline:hover,
+	.underline:focus,
+	.underline:active {
+  			cursor: pointer;
+  		}
+	.underline:hover:after,
+	.underline:focus:after,
+	.underline:active:after {
+	  width: 100%;
+	}
+	.underline:after {
+	  content: '';
+	  position: absolute;
+	  left: 0;
+	  bottom: -3px;
+	  height: 2px;
+	  background-color: #fff;
+	  width: 0;
+	  transition: width 1s;
+	}
+
+	a[href*="w3"] {
+	color: red;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+	body {
+		max-width: 100%;
+	}
+	button {
+		margin: 5px;
+	}
+	ol>li {
+		list-style-type: none;
+	}
+	h4:first-letter {
+		text-transform: uppercase;
+	}
